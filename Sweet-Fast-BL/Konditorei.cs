@@ -87,13 +87,13 @@ namespace Sweet_Fast_BL
             einKunde.EndH = reader.GetString(8);
             return einKunde;
         }
-        internal static Konditorei Load(int KundenID)
+        internal static Konditorei Load(int KonditorID)
         {
-            string SQL = "select id, name, vorname, kundenstatus from Kunden where ID = @id";
+            string SQL = "select * from Konditoreien where ID = @id";
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = SQL;
             cmd.Connection = Main.getConnection();
-            cmd.Parameters.Add(new SqlParameter("id", KundenID));
+            cmd.Parameters.Add(new SqlParameter("id", KonditorID));
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {
@@ -103,7 +103,20 @@ namespace Sweet_Fast_BL
             else
                 return null;
         }
+        internal static List<Konditorei> LoadAll()
+        {
+            SqlCommand cmd = new SqlCommand("select * from Konditoreien", Main.getConnection());
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Konditorei> alleKonditoreien = new List<Konditorei>(); 
+            while (reader.Read())
+            {
+                Konditorei einKunde = fillKonditoreiFromSQLDataReader(reader);
+                alleKonditoreien.Add(einKunde);
+            }
+ 
 
+            return alleKonditoreien;
+        } 
     }
 
 }

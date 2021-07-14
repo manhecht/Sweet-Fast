@@ -9,7 +9,7 @@ namespace Sweet_Fast_BL
 {
     public static class Main
     {
-
+        //wird aufgerufen wann immer eine Connection zur DB benötigt wird
         internal static SqlConnection getConnection()
         {
             List<string> dirs = new List<string>(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory).Split('\\'));
