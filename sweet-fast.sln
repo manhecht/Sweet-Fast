@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sweet-Fast-PL", "Sweet-Fast
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sweet-Fast-BL", "Sweet-Fast-BL\Sweet-Fast-BL.csproj", "{673793A8-6FF0-47A7-B872-A5B2ACD8A66A}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Sweet-Fast-DL", "Sweet-Fast-DL\Sweet-Fast-DL.sqlproj", "{8EEF79D2-8896-4265-8CFC-B7EFC3DD19A7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +21,6 @@ Global
 		{673793A8-6FF0-47A7-B872-A5B2ACD8A66A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{673793A8-6FF0-47A7-B872-A5B2ACD8A66A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{673793A8-6FF0-47A7-B872-A5B2ACD8A66A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8EEF79D2-8896-4265-8CFC-B7EFC3DD19A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8EEF79D2-8896-4265-8CFC-B7EFC3DD19A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8EEF79D2-8896-4265-8CFC-B7EFC3DD19A7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{8EEF79D2-8896-4265-8CFC-B7EFC3DD19A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8EEF79D2-8896-4265-8CFC-B7EFC3DD19A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8EEF79D2-8896-4265-8CFC-B7EFC3DD19A7}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
