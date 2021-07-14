@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 
 namespace Sweet_Fast_BL
 {
-    public class Konditorei
+    public  class Konditorei
     {
         //Variablen 
         private int kondID; //Konditorei ID
@@ -72,7 +72,6 @@ namespace Sweet_Fast_BL
 
 
 
-
         private static Konditorei fillKonditoreiFromSQLDataReader(SqlDataReader reader)
         {
             Konditorei einKunde = new Konditorei();
@@ -80,16 +79,21 @@ namespace Sweet_Fast_BL
             einKunde.KondName = reader.GetString(1);
             einKunde.KondStrasse = reader.GetString(2);
             einKunde.KondHausnummer = reader.GetInt32(3);
-            einKunde.KondTuernummer = reader.GetInt32(4);
+            try {
+
+                einKunde.KondTuernummer = reader.GetInt32(4);
+            }
+            catch{ }
+            
             einKunde.KondPlz = reader.GetInt32(5);
             einKunde.KondOrt = reader.GetString(6);
-            einKunde.StartH = reader.GetString(7);
-            einKunde.EndH = reader.GetString(8);
+            einKunde.StartH = reader.GetTimeSpan(7).ToString();
+            einKunde.EndH = reader.GetTimeSpan(8).ToString();
             return einKunde;
         }
-        internal static Konditorei Load(int KonditorID)
+        public static Konditorei getKonditorei(int KonditorID)
         {
-            string SQL = "select * from Konditoreien where ID = @id";
+            string SQL = "select * from Konditoreien where kondID = @id";
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = SQL;
             cmd.Connection = Main.getConnection();
@@ -103,20 +107,21 @@ namespace Sweet_Fast_BL
             else
                 return null;
         }
-        internal static List<Konditorei> LoadAll()
+        public static List<Konditorei> getAllKonditoreien()
         {
             SqlCommand cmd = new SqlCommand("select * from Konditoreien", Main.getConnection());
             SqlDataReader reader = cmd.ExecuteReader();
-            List<Konditorei> alleKonditoreien = new List<Konditorei>(); 
+            List<Konditorei> alleKonditoreien = new List<Konditorei>();
             while (reader.Read())
             {
                 Konditorei einKunde = fillKonditoreiFromSQLDataReader(reader);
                 alleKonditoreien.Add(einKunde);
             }
- 
+
 
             return alleKonditoreien;
-        } 
+        }
+
     }
 
 }

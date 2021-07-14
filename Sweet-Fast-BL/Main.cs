@@ -19,5 +19,7 @@ namespace Sweet_Fast_BL
             conn.Open(); // sollte mit try catch gesichert werden
             return conn;
         }
+        
     }
+
 }
