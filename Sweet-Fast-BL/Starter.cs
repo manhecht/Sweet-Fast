@@ -20,7 +20,7 @@ namespace Sweet_Fast_BL
         }
         internal static SqlConnection getConnection()
         {
-            string conString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\jerem\source\repos\manhecht\Sweet-Fast-New\DL_Zitate\Zitate.mdf;Integrated Security=True;Connect Timeout=30";
+            string conString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\manue\source\repos\sweet-fast\DL_Zitate\Zitate.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection conn = new SqlConnection(conString);
             conn.Open();
             return conn;

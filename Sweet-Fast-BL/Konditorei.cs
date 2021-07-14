@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Sweet_Fast_BL
 {
-    public class Class1
+    public class Konditorei
     {
         internal static SqlConnection getConnection()
         {

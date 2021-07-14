@@ -13,12 +13,12 @@ namespace Sweet_Fast_PL
         Eintrag meinEintrag;
         protected void Page_Load(object sender, EventArgs e)
         {
-            meinEintrag = Starter.newEintrag();
+            meinEintrag = Sweet_Fast_BL.Starter.newEintrag();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            meinEintrag = Starter.getEintragById("428d428c-e8c6-49a7-8190-0dc2e90bbaef");
+            meinEintrag = Sweet_Fast_BL.Starter.getEintragById("428d428c-e8c6-49a7-8190-0dc2e90bbaef");
             txt.Text = meinEintrag.Zitattext;
         }
     }
