@@ -2,6 +2,5 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    gdfgdfg
-
+    
 </asp:Content>
