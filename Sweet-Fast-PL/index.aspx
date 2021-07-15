@@ -9,18 +9,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
+
+
         <div id="divLogin">
-            <asp:Label ID="lblLogin" runat="server" Text="Ich bin schon registriert und will was süßes😋 "></asp:Label>
+            <h3><asp:Label ID="lblLogin" runat="server" Text="Ich bin schon registriert und will was süßes😋 "></asp:Label> </h3>
             <br />
             <asp:TextBox ID="txtEmailLogin" runat="server" placeholder="E-Mail"></asp:TextBox>
             <asp:TextBox ID="txtPasswortLogin" runat="server" placeholder="Passwort"></asp:TextBox>
             <br />
             <asp:Button ID="btnLogin" runat="server" Text="Login und gleich bestellen" />
         </div>
+
+
         <div id="divRegister">
-            <asp:Label ID="lblRegister" runat="server" Text="Gib mir einen Account Daddy🍆 "></asp:Label>
+            <h3><asp:Label ID="lblRegister" runat="server" Text="Gib mir einen Account Daddy🍆 "></asp:Label></h3> 
             <br />
             <asp:TextBox ID="txtVornameRegister" runat="server" placeholder="Vorname"></asp:TextBox>
             <asp:TextBox ID="txtZunameRegister" runat="server" placeholder="Zuname"></asp:TextBox>
