@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bestellung.cs" />
+    <Compile Include="Essen.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Konditorei.cs" />
