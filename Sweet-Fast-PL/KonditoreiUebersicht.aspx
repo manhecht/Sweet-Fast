@@ -10,8 +10,10 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <h2>Hallo User, diese Unternehmen liefern zu Dir!</h2>
-            <asp:GridView ID="GVKonditorei" runat="server" AutoGenerateColumns="False" EmptyDataText="Keine Lokale in der Datenbank" >
+            
+            <asp:Label ID="lblHalloUser" runat="server"></asp:Label>
+            
+            <asp:GridView ID="GVKonditorei" runat="server" AutoGenerateColumns="False" EmptyDataText="Keine Lokale in der Datenbank" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GVKonditorei_SelectedIndexChanged" >
                 <Columns>
                     <asp:BoundField DataField="kondName" HeaderText="Name" />
                     <asp:BoundField DataField="businessType" HeaderText="Typ" />

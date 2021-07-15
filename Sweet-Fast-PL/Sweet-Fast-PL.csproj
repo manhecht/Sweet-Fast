@@ -113,6 +113,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="FoodOrder.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -168,6 +169,13 @@
     </Compile>
     <Compile Include="Debug.aspx.designer.cs">
       <DependentUpon>Debug.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FoodOrder.aspx.cs">
+      <DependentUpon>FoodOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FoodOrder.aspx.designer.cs">
+      <DependentUpon>FoodOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
