@@ -10,6 +10,14 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <h2>Hallo User, diese Unternehmen liefern zu Dir!</h2>
+            <asp:GridView ID="GVKonditorei" runat="server" AutoGenerateColumns="False" EmptyDataText="Keine Lokale in der Datenbank" >
+                <Columns>
+                    <asp:BoundField DataField="kondName" HeaderText="Name" />
+                    <asp:BoundField DataField="businessType" HeaderText="Typ" />
+                    <asp:BoundField DataField="startH" HeaderText="derzeit geöffnet?" />
+                </Columns>
+            </asp:GridView>
         </div>
     </form>
 </body>

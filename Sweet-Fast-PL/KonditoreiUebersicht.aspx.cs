@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sweet_Fast_BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,11 @@ namespace Sweet_Fast_PL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            List<Konditorei> kon = Konditorei.getAllKonditoreien();
+            GVKonditorei.DataSource = kon;
+            GVKonditorei.DataBind();
         }
+
+
     }
 }
