@@ -11,10 +11,19 @@ namespace Sweet_Fast_PL
     public partial class KonditoreiUebersicht : System.Web.UI.Page
     {
         List<Konditorei> kon = Konditorei.getAllKonditoreien();
+        String user;
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["selectedBusiness"] = "";
-            String user = "RoboGrischa";
+
+            user = (string)Session["loggedInUser"];
+            
+            if (user == "")  //noch funktioniert es nicht aber es sollt eig redirecten
+            {
+                Response.Redirect("Index.aspx");
+            }
+
+
             lblHalloUser.Text = "Hallo " + user + " diese Unternehmen liefern zu dir: ";
 
 

@@ -19,8 +19,9 @@ namespace Sweet_Fast_PL
         {
             List<Konditorei> kon = Konditorei.getAllKonditoreien();
            
+            User meinUser= Sweet_Fast_BL.User.einloggen("sevstef@cutie.com", "sevstef");
 
-            lblDebug.Text = Sweet_Fast_BL.Konditorei.checkÖffnungszeit(2).ToString();
+            lblDebug.Text = meinUser.Strasse;
         }
     }
 }

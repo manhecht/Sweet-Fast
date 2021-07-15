@@ -13,13 +13,27 @@ namespace Sweet_Fast_PL
         int currentBusinessID;
         Konditorei currentBusiness;
 
+        String closingHour;
+
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 currentBusinessID = (int)Session["selectedBusiness"];
+
                 currentBusiness = Konditorei.getKonditorei(currentBusinessID);
-                lblFoodOrderPlace.Text = currentBusiness.KondName;
+
+
+                closingHour = currentBusiness.EndH;
+
+                
+
+
+                lblFoodOrderPlaceName.Text = currentBusiness.KondName;
+                lblFoodOrderPlaceOpening.Text = "Das Lokal hat bis " + closingHour + " offen!";
+                
             }
 
 
