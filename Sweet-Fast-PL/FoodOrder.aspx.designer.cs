@@ -11,7 +11,7 @@ namespace Sweet_Fast_PL
 {
 
 
-    public partial class KonditoreiUebersicht
+    public partial class FoodOrder
     {
 
         /// <summary>
@@ -24,21 +24,12 @@ namespace Sweet_Fast_PL
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lblHalloUser-Steuerelement
+        /// lblFoodOrderPlace-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHalloUser;
-
-        /// <summary>
-        /// GVKonditorei-Steuerelement
-        /// </summary>
-        /// <remarks>
-        /// Automatisch generiertes Feld
-        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVKonditorei;
+        protected global::System.Web.UI.WebControls.Label lblFoodOrderPlace;
     }
 }
