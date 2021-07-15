@@ -11,7 +11,7 @@ namespace Sweet_Fast_PL
 {
 
 
-    public partial class FoodOrder
+    public partial class Endscreen
     {
 
         /// <summary>
@@ -24,21 +24,39 @@ namespace Sweet_Fast_PL
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lblFoodOrderPlaceName-Steuerelement
+        /// lblThanks-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFoodOrderPlaceName;
+        protected global::System.Web.UI.WebControls.Label lblThanks;
 
         /// <summary>
-        /// lblFoodOrderPlaceOpening-Steuerelement
+        /// lblDeliveryTime-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFoodOrderPlaceOpening;
+        protected global::System.Web.UI.WebControls.Label lblDeliveryTime;
+
+        /// <summary>
+        /// btnReorder-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnReorder;
+
+        /// <summary>
+        /// btnLogOut-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogOut;
     }
 }

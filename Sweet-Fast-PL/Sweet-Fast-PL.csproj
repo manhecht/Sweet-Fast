@@ -111,6 +111,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Endscreen.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="FoodOrder.aspx" />
@@ -169,6 +170,13 @@
     </Compile>
     <Compile Include="Debug.aspx.designer.cs">
       <DependentUpon>Debug.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Endscreen.aspx.cs">
+      <DependentUpon>Endscreen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Endscreen.aspx.designer.cs">
+      <DependentUpon>Endscreen.aspx</DependentUpon>
     </Compile>
     <Compile Include="FoodOrder.aspx.cs">
       <DependentUpon>FoodOrder.aspx</DependentUpon>

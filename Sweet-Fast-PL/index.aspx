@@ -12,12 +12,16 @@
 
 
         <div id="divLogin">
+            <h3>
+                <asp:Label ID="lblResponse" runat="server"></asp:Label>
+            </h3>
+            <h3>&nbsp;</h3>
             <h3><asp:Label ID="lblLogin" runat="server" Text="Ich bin schon registriert und will was süßes😋 "></asp:Label> </h3>
             <br />
             <asp:TextBox ID="txtEmailLogin" runat="server" placeholder="E-Mail"></asp:TextBox>
             <asp:TextBox ID="txtPasswortLogin" runat="server" placeholder="Passwort"></asp:TextBox>
             <br />
-            <asp:Button ID="btnLogin" runat="server" Text="Login und gleich bestellen" />
+            <asp:Button ID="btnLogin" runat="server" Text="Login und gleich bestellen" OnClick="btnLogin_Click" />
         </div>
 
 
@@ -38,7 +42,7 @@
             <asp:TextBox ID="txtEmailRegister" runat="server" placeholder="E-Mail"></asp:TextBox>
             <asp:TextBox ID="txtPasswortRegister" runat="server" placeholder="Passwort"></asp:TextBox>
             <br />
-            <asp:Button ID="btnRegister" runat="server" Text="Registrieren" />
+            <asp:Button ID="btnRegister" runat="server" Text="Registrieren" OnClick="btnRegister_Click" />
         </div>
     </form>
 </body>
