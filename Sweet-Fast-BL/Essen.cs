@@ -83,9 +83,9 @@ namespace Sweet_Fast_BL
 
             return alleEssen;
         }
-        //TODO
 
-        //Methode setSpeisetoWarenkorb
+        //TODO
+        //Methode setEssentoBestellung
 
     }
 }
