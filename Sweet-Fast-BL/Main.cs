@@ -49,6 +49,17 @@ namespace Sweet_Fast_BL
 
             
         }
+
+
+        public static User einloggen(String email, String passwort)
+        {
+            User meinUser = new User();
+
+            //User Properties -> Manu?
+            //fillUserfromSQL
+            //getUser
+            return meinUser;
+        }
         
     }
 
