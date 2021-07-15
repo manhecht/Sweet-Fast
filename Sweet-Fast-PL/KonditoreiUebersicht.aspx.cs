@@ -18,7 +18,7 @@ namespace Sweet_Fast_PL
 
             
             
-            if (Session["loggedInUser"] == null)  //noch funktioniert es nicht aber es sollt eig redirecten
+            if (Session["loggedInUser"] == null)  
             {
                 Response.Redirect("Index.aspx");
             }

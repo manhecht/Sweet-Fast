@@ -19,6 +19,10 @@ namespace Sweet_Fast_PL
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["loggedInUser"] == null)  
+            {
+                Response.Redirect("Index.aspx");
+            }
             if (!IsPostBack)
             {
                 currentBusinessID = (int)Session["selectedBusiness"];
