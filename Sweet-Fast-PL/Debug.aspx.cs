@@ -20,7 +20,7 @@ namespace Sweet_Fast_PL
             List<Konditorei> kon = Konditorei.getAllKonditoreien();
            
 
-            lblDebug.Text = Main.registrieren("Stefan", "Severin", "sevstef", "Home", 34, 22, "+4364043334", 1110, "Wien", "sevstef@cutie.com").ToString();
+            lblDebug.Text = User.registrieren("Jeremias", "Severin", "sevstef", "Home", 34, 22, "+4364043334", 1110, "Wien", "sevstef@cutie.com").ToString();
         }
     }
 }
