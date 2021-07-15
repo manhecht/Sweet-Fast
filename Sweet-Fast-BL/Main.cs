@@ -22,25 +22,32 @@ namespace Sweet_Fast_BL
 
         public static bool registrieren(String vorname, String zuname,String passwort, String strasse, int hNr, int tNr, String telNr, int plz, String ort, String email)
         {
-            string SQL = "insert into User(vorname,zuname,passwort, email, telefonnummer, strasse, hausnummer, tuernummer, plz, ort) Values(@vorname,@zuname,@passwort,@email,@tNr,@strasse,@hNr,@tNr,@plz,@ort)";
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = SQL;
-            cmd.Connection = Main.getConnection();
-            cmd.Parameters.Add(new SqlParameter("vorname", vorname));
-            cmd.Parameters.Add(new SqlParameter("zuname", zuname));
-            cmd.Parameters.Add(new SqlParameter("passwort", passwort));
-            cmd.Parameters.Add(new SqlParameter("email", email));
-            cmd.Parameters.Add(new SqlParameter("tNr", tNr));
-            cmd.Parameters.Add(new SqlParameter("strasse", tNr));
-            cmd.Parameters.Add(new SqlParameter("hausnummer", tNr));
-            cmd.Parameters.Add(new SqlParameter("türnummer", tNr));
-            cmd.Parameters.Add(new SqlParameter("plz", tNr));
-            cmd.Parameters.Add(new SqlParameter("ort", tNr));
+            try
+            {
+                string SQL = "INSERT INTO [User] ([vorname],[zuname],[passwort],[email],[telefonnummer],[strasse],[hausnummer],[türnummer],[plz],[ort]) values(@vorname,@zuname,@passwort,@email,@telefonnummer,@strasse,@hausnummer,@türnummer,@plz,@ort)";
+                SqlCommand cmd = new SqlCommand(SQL);
+                cmd.Connection = getConnection();
+                cmd.Parameters.AddWithValue("vorname", vorname);
+                cmd.Parameters.AddWithValue("zuname", zuname);
+                cmd.Parameters.AddWithValue("passwort", passwort);
+                cmd.Parameters.AddWithValue("email", email);
+                cmd.Parameters.AddWithValue("telefonnummer", telNr);
+                cmd.Parameters.AddWithValue("strasse", strasse);
+                cmd.Parameters.AddWithValue("hausnummer", hNr);
+                cmd.Parameters.AddWithValue("türnummer", tNr);
+                cmd.Parameters.AddWithValue("plz", plz);
+                cmd.Parameters.AddWithValue("ort", ort);
+                cmd.ExecuteNonQuery();
 
-            SqlDataReader reader = cmd.ExecuteReader();
+                cmd.Connection.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
 
-
-            return true;
+            
         }
         
     }
