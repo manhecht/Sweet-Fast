@@ -18,7 +18,7 @@ namespace Sweet_Fast_BL
         private int türnummer;
         private int plz;
         private String ort;
-        private int telefonnummer;
+        private string telefonnummer;
 
 
         public int UserId
@@ -46,7 +46,7 @@ namespace Sweet_Fast_BL
             get { return email; }
             internal set { email = value; }
         }
-        public int Telefonnummer
+        public string Telefonnummer
         {
             get { return telefonnummer; }
             internal set { telefonnummer = value; }
