@@ -16,10 +16,14 @@ namespace Sweet_Fast_BL
             dirs.RemoveAt(dirs.Count - 1); //letztes Verzeichnis entfernen
             string conString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + String.Join(@"\", dirs) + @"\DL_Zitate\Zitate.mdf;Integrated Security=True;Connect Timeout=5";
             SqlConnection conn = new SqlConnection(conString);
-            conn.Open(); // sollte mit try catch gesichert werden
-            return conn;
-        }
+            try {
+                conn.Open(); 
+            }
+            catch { }
 
+                return conn;
+        }
+        //registriert den user in dem ein Datenbank Eintrag angelegt wird
         public static bool registrieren(String vorname, String zuname,String passwort, String strasse, int hNr, int tNr, String telNr, int plz, String ort, String email)
         {
             try
@@ -50,7 +54,7 @@ namespace Sweet_Fast_BL
             
         }
 
-
+        //vergleicht email + passwort 
         public static User einloggen(String email, String passwort)
         {
             User meinUser = new User();
