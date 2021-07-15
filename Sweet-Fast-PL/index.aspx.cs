@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Sweet_Fast_PL
 {
-    public partial class _Default : Page
+    public partial class index : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

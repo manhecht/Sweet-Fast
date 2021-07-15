@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="Sweet_Fast_PL.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Sweet_Fast_PL.index" %>
 
 <!DOCTYPE html>
 
@@ -10,9 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
         </div>
-        <asp:TextBox ID="txt" runat="server"></asp:TextBox>
     </form>
 </body>
 </html>
