@@ -93,8 +93,8 @@ namespace Sweet_Fast_BL
             
             einKunde.KondPlz = reader.GetInt32(5);
             einKunde.KondOrt = reader.GetString(6);
-            einKunde.StartH = reader.GetDateTime(7).ToString();
-            einKunde.EndH = reader.GetDateTime(8).ToString();
+            einKunde.StartH = reader.GetSqlValue(7).ToString();
+            einKunde.EndH = reader.GetSqlValue(8).ToString();
             einKunde.BusinessType = reader.GetString(9);
             return einKunde;
         }
@@ -131,25 +131,18 @@ namespace Sweet_Fast_BL
 
         public static bool checkÖffnungszeit(int KonditorID)
         {
-           
-            string SQL = "Select startH, endH from Konditoreien where kondID = @id";
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = SQL;
-            cmd.Connection = Main.getConnection();
-            cmd.Parameters.Add(new SqlParameter("id", KonditorID));
-            SqlDataReader reader = cmd.ExecuteReader();
-            reader.Read();
-            DateTime startH = reader.GetDateTime(0);
-
-            DateTime endH = reader.GetDateTime(1);
+            Konditorei kond= Konditorei.getKonditorei(KonditorID);
 
             DateTime time = DateTime.Now;
 
-
-            if (startH.Hour <= time.Hour && endH.Hour >= time.Hour)
+            DateTime startHour = DateTime.Parse(kond.startH);
+            DateTime endHour = DateTime.Parse(kond.endH);
+            if (startHour.TimeOfDay <= time.TimeOfDay && endHour.TimeOfDay >= time.TimeOfDay)
             {
-                return true;
+               
+                    return true;
+                
             } else
             {
                 return false;

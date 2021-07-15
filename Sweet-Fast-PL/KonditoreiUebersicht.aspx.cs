@@ -11,23 +11,24 @@ namespace Sweet_Fast_PL
     public partial class KonditoreiUebersicht : System.Web.UI.Page
     {
         List<Konditorei> kon = Konditorei.getAllKonditoreien();
-        String user;
+        int userID;
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["selectedBusiness"] = "";
 
-            user = (string)Session["loggedInUser"];
             
-            if (user == "")  //noch funktioniert es nicht aber es sollt eig redirecten
+            
+            if (Session["loggedInUser"] == null)  //noch funktioniert es nicht aber es sollt eig redirecten
             {
                 Response.Redirect("Index.aspx");
             }
+            else
+            {
+                 userID = (int)Session["loggedInUser"];
+            }
 
 
-            lblHalloUser.Text = "Hallo " + user + " diese Unternehmen liefern zu dir: ";
-
-
-            kon = Konditorei.getAllKonditoreien();
+            lblHalloUser.Text = "Hallo " + Sweet_Fast_BL.User.getUser(userID).Vorname + " diese Unternehmen liefern zu dir: ";
             GVKonditorei.DataSource = kon;
             GVKonditorei.DataBind();
         }
