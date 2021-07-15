@@ -17,7 +17,7 @@
             <asp:TextBox ID="txtEmailLogin" runat="server" placeholder="E-Mail"></asp:TextBox>
             <asp:TextBox ID="txtPasswortLogin" runat="server" placeholder="Passwort"></asp:TextBox>
             <br />
-            <asp:Button ID="btnLogin" runat="server" Text="Login und gleich bestellen" />
+            <asp:Button ID="btnLogin" runat="server" Text="Login und gleich bestellen" OnClick="btnLogin_Click" />
         </div>
 
 
