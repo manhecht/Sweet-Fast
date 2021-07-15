@@ -22,10 +22,20 @@ namespace Sweet_Fast_PL
             String inputEmail = txtEmailLogin.Text;
             String inputPasswort = txtPasswortLogin.Text;
 
-            Sweet_Fast_BL.User.einloggen(inputEmail, inputPasswort);
+            User angemeldeterUser=Sweet_Fast_BL.User.einloggen(inputEmail, inputPasswort);
 
-            Session["loggedInUser"] = "Michael";
-            Response.Redirect("KonditoreiUebersicht.aspx");
+            
+            if(angemeldeterUser.Vorname !=null)
+            {
+                Session["loggedInUser"] = angemeldeterUser.UserId;
+                Response.Redirect("KonditoreiUebersicht.aspx");
+            }
+            else
+            {
+                lblResponse.Text = "Etwas ist schief gegangen, bitte versuche es erneut.";
+            }
+
+            
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
