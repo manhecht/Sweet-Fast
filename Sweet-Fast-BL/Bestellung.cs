@@ -40,7 +40,9 @@ namespace Sweet_Fast_BL
             internal set { kundeID = value; }
         }
 
-
+        //TODO
+        //getBestellung() oder getWarenkorb()
+        //bestellen()
 
     }
 }
