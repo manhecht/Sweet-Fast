@@ -18,7 +18,9 @@ namespace Sweet_Fast_PL
         protected void btnDebug_Click(object sender, EventArgs e)
         {
             List<Konditorei> kon = Konditorei.getAllKonditoreien();
-            lblDebug.Text = kon[3].BusinessType;
+           
+
+            lblDebug.Text = Main.registrieren("Stefan", "Severin", "sevstef", "Home", 34, 22, "+4364043334", 1110, "Wien", "sevstef@cutie.com").ToString();
         }
     }
 }
