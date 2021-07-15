@@ -19,6 +19,29 @@ namespace Sweet_Fast_BL
             conn.Open(); // sollte mit try catch gesichert werden
             return conn;
         }
+
+        public static bool registrieren(String vorname, String zuname,String passwort, String strasse, int hNr, int tNr, String telNr, int plz, String ort, String email)
+        {
+            string SQL = "insert into User(vorname,zuname,passwort, email, telefonnummer, strasse, hausnummer, tuernummer, plz, ort) Values(@vorname,@zuname,@passwort,@email,@tNr,@strasse,@hNr,@tNr,@plz,@ort)";
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = SQL;
+            cmd.Connection = Main.getConnection();
+            cmd.Parameters.Add(new SqlParameter("vorname", vorname));
+            cmd.Parameters.Add(new SqlParameter("zuname", zuname));
+            cmd.Parameters.Add(new SqlParameter("passwort", passwort));
+            cmd.Parameters.Add(new SqlParameter("email", email));
+            cmd.Parameters.Add(new SqlParameter("tNr", tNr));
+            cmd.Parameters.Add(new SqlParameter("strasse", tNr));
+            cmd.Parameters.Add(new SqlParameter("hausnummer", tNr));
+            cmd.Parameters.Add(new SqlParameter("türnummer", tNr));
+            cmd.Parameters.Add(new SqlParameter("plz", tNr));
+            cmd.Parameters.Add(new SqlParameter("ort", tNr));
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+
+            return true;
+        }
         
     }
 

@@ -22,6 +22,7 @@ namespace Sweet_Fast_BL
         private string kondOrt; //Ort
         private string startH; //Öffnungszeiten
         private string endH;
+        private string businessType; //Art der Konditorei        
         //Properties
         //Zugriff auf alle erlaubt aber überschreiben nicht außerhalb BL
         public int KondID
@@ -69,9 +70,14 @@ namespace Sweet_Fast_BL
             get { return endH; }
             internal set { endH = value; }
         }
+        public string BusinessType
+        {
+            get { return businessType; }
+            internal set { businessType = value; }
+        }
 
 
-
+        //Methoden
         private static Konditorei fillKonditoreiFromSQLDataReader(SqlDataReader reader)
         {
             Konditorei einKunde = new Konditorei();
@@ -89,6 +95,7 @@ namespace Sweet_Fast_BL
             einKunde.KondOrt = reader.GetString(6);
             einKunde.StartH = reader.GetTimeSpan(7).ToString();
             einKunde.EndH = reader.GetTimeSpan(8).ToString();
+            einKunde.BusinessType = reader.GetString(9);
             return einKunde;
         }
         public static Konditorei getKonditorei(int KonditorID)
