@@ -8,13 +8,13 @@ using System.Data.SqlClient;
 
 namespace Sweet_Fast_BL
 {
-    class Essen
+    public class Essen
     {
 
         private int essenID;
         private int unternehmenID;
         private string foodName;
-        private int preis;
+        private decimal preis;
 
         public int EssenID
         {
@@ -31,7 +31,7 @@ namespace Sweet_Fast_BL
             get { return foodName; }
             internal set { foodName = value; }
         }
-        public int Preis
+        public decimal Preis
         {
             get { return preis; }
             internal set { preis = value; }
@@ -45,12 +45,8 @@ namespace Sweet_Fast_BL
             einEssen.EssenID = reader.GetInt32(0);
             einEssen.UnternehmenID = reader.GetInt32(1);
             einEssen.FoodName = reader.GetString(2);
-            try
-            {
-
-                einEssen.Preis = reader.GetInt32(3);
-            }
-            catch { }
+            einEssen.Preis = reader.GetDecimal(3);
+       
             return einEssen;
         }
         public static Essen getEssen(int SpeiseID)
@@ -86,6 +82,5 @@ namespace Sweet_Fast_BL
 
         //TODO
         //Methode setEssentoBestellung
-
     }
 }

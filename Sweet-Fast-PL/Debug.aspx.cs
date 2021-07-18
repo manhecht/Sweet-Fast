@@ -10,18 +10,17 @@ namespace Sweet_Fast_PL
 {
     public partial class Contact : Page
     {
+        Bestellung best = new Sweet_Fast_BL.Bestellung(2,2);
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnDebug_Click(object sender, EventArgs e)
         {
-            List<Konditorei> kon = Konditorei.getAllKonditoreien();
+            best.setEssenToBestellung(Essen.getEssen(1));
+            lblDebug.Text =best.BestellungID.ToString();
 
-            bool zeit=Konditorei.checkÖffnungszeit(2);
-
-            lblDebug.Text = zeit.ToString();
         }
     }
 }
