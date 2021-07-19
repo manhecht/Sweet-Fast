@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-
+using System.Net;
 
 namespace Sweet_Fast_BL
 {
@@ -65,9 +65,11 @@ namespace Sweet_Fast_BL
             else
                 return null;
         }
-        public static List<Essen> getAllEssen()
+        public static List<Essen> getAllEssen(int unternehmenID)
         {
-            SqlCommand cmd = new SqlCommand("select * from Essen", Main.getConnection());
+            SqlCommand cmd = new SqlCommand("select * from Essen where unternehmenID=@firmenID", Main.getConnection());
+            cmd.Parameters.Add(new SqlParameter("firmenID", unternehmenID));
+
             SqlDataReader reader = cmd.ExecuteReader();
             List<Essen> alleEssen = new List<Essen>();
             while (reader.Read())
@@ -79,7 +81,31 @@ namespace Sweet_Fast_BL
 
             return alleEssen;
         }
+        public static List<Essen> getEssenFromWarenkorb(int bestellungID)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select distinct bestEssenID from Einzelbestellungen where rechnungsID=@rechnungsID", Main.getConnection());
+                cmd.Parameters.Add(new SqlParameter("rechnungsID", bestellungID));
+                SqlDataReader read = cmd.ExecuteReader();
+                int essenIDWarenkorb = read.GetInt32(0);
 
+                SqlCommand cmdTwo = new SqlCommand("select * from Essen where bestEssenID=@bestEssenID", Main.getConnection());
+                cmdTwo.Parameters.Add(new SqlParameter("bestEssenID", essenIDWarenkorb));
+
+                SqlDataReader reader = cmdTwo.ExecuteReader();
+                List<Essen> alleEssen = new List<Essen>();
+                while (reader.Read())
+                {
+                    Essen einEssen = fillEssenFromSQLDataReader(reader);
+                    alleEssen.Add(einEssen);
+                }
+
+
+                return alleEssen;
+            }
+            catch { return null; }
+        }
         //TODO
         //Methode setEssentoBestellung
     }

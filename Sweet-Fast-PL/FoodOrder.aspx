@@ -14,6 +14,25 @@
             <br />
             <asp:Label ID="lblFoodOrderPlaceOpening" runat="server"></asp:Label>
         </div>
+        <asp:GridView ID="GVEssen" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <Columns>
+                <asp:BoundField HeaderText="Essen" DataField="foodName" />
+                <asp:BoundField HeaderText="Preis" DataField="preis" />
+                <asp:ButtonField Text="In den Warenkorb!" />
+            </Columns>
+        </asp:GridView>
+        <br />
+        
+        <div id="divWarenkorb">
+            <asp:Label ID="lblWarenkorb" runat="server" Text="Warenkorb"></asp:Label>
+            <asp:GridView ID="GVWarenkorb" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField HeaderText="Essen" DataField="foodName" />
+                    <asp:BoundField HeaderText="Preis" DataField="preis" />
+                    <asp:ButtonField Text="Löschen!" />
+                </Columns>
+            </asp:GridView>
+        </div>
     </form>
 </body>
 </html>

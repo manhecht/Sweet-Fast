@@ -14,8 +14,10 @@ namespace Sweet_Fast_PL
         Konditorei currentBusiness;
 
         String closingHour;
-
-
+        List<Essen> essenImWarenkorb;
+        List<Essen> alleSpeisen;
+       Bestellung best;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,19 +30,42 @@ namespace Sweet_Fast_PL
                 currentBusinessID = (int)Session["selectedBusiness"];
 
                 currentBusiness = Konditorei.getKonditorei(currentBusinessID);
-
-
+                best = new Bestellung(currentBusinessID, (int)Session["loggedInUser"]);
+                best.createBestellung();
+                essenImWarenkorb = Essen.getEssenFromWarenkorb(best.BestellungID);
                 closingHour = currentBusiness.EndH;
 
-                
+
 
 
                 lblFoodOrderPlaceName.Text = currentBusiness.KondName;
                 lblFoodOrderPlaceOpening.Text = "Das Lokal hat bis " + closingHour + " offen!";
-                
+                alleSpeisen = Essen.getAllEssen(currentBusinessID);
+                GVEssen.DataSource = alleSpeisen;
+                GVEssen.DataBind();
+                GVWarenkorb.DataSource = essenImWarenkorb;
+                GVWarenkorb.DataBind();
+            }
+            else
+            {
+                currentBusinessID = (int)Session["selectedBusiness"];
+
+ 
+                essenImWarenkorb = Essen.getEssenFromWarenkorb(best.BestellungID);
+                alleSpeisen = Essen.getAllEssen(currentBusinessID);
+                GVEssen.DataSource = alleSpeisen;
+                GVEssen.DataBind();
+                GVWarenkorb.DataSource = essenImWarenkorb;
+                GVWarenkorb.DataBind();
             }
 
+        }
 
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = GVEssen.SelectedRow;
+            int essenSelected = alleSpeisen[row.RowIndex].EssenID;
+            best.setEssenToBestellung(Essen.getEssen(essenSelected));
         }
     }
 }
