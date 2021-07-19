@@ -25,7 +25,7 @@
         
         <div id="divWarenkorb">
             <asp:Label ID="lblWarenkorb" runat="server" Text="Warenkorb"></asp:Label>
-            <asp:GridView ID="GVWarenkorb" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="GVWarenkorb" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GVWarenkorb_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField HeaderText="Essen" DataField="foodName" />
                     <asp:BoundField HeaderText="Preis" DataField="preis" />

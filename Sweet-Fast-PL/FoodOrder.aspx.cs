@@ -71,5 +71,10 @@ namespace Sweet_Fast_PL
             Session["selected"] = 2;
 
         }
+
+        protected void GVWarenkorb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

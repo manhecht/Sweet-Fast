@@ -17,14 +17,25 @@ namespace Sweet_Fast_PL
 
         protected void btnDebug_Click(object sender, EventArgs e)
         {
-            Bestellung best = new Sweet_Fast_BL.Bestellung(2, 2);
+            if (Sweet_Fast_BL.User.checkDuplicate("makjsijdposaf"))
+            {
+                lblDebug.Text = "Email schon vergeben";
+            } 
+            else
+            {
+                lblDebug.Text = "Email frei";
+            }
+            
+            
+            /*
+            Bestellung best = new Sweet_Fast_BL.Bestellung(2, );
             best.createBestellung();
             best.setEssenToBestellung(Essen.getEssen(2));
             best.removeEssenFromBestellung(Essen.getEssen(2));
             best.setEssenToBestellung(Essen.getEssen(1));
             best.bestellen();
            Bestellung neu=  Bestellung.getBestellung(best.BestellungID);
-            lblDebug.Text = neu.Gesamtpreis.ToString();
+            lblDebug.Text = neu.Gesamtpreis.ToString(); */
 
         }
     }
