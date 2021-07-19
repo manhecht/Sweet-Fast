@@ -19,10 +19,12 @@ namespace Sweet_Fast_PL
         {
             Bestellung best = new Sweet_Fast_BL.Bestellung(2, 2);
             best.createBestellung();
+            best.setEssenToBestellung(Essen.getEssen(2));
+            best.removeEssenFromBestellung(Essen.getEssen(2));
             best.setEssenToBestellung(Essen.getEssen(1));
             best.bestellen();
            Bestellung neu=  Bestellung.getBestellung(best.BestellungID);
-            lblDebug.Text =neu.Gesamtpreis.ToString();
+            lblDebug.Text = neu.Gesamtpreis.ToString();
 
         }
     }
