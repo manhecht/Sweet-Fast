@@ -54,8 +54,6 @@ namespace Sweet_Fast_BL
             this.OrderFromID = konditorID;
             this.KundeID = bestellerID;
 
-
- 
         }
 
 
@@ -75,18 +73,17 @@ namespace Sweet_Fast_BL
         }
         public void removeEssenFromBestellung(Essen mahlzeit)
         {
-            string SQL = "DELETE INTO [Einzelbestellungen] ([bestEssenID],[rechnungsID]) values(@essenID,@rechnungsID)";
+            string SQL = "DELETE  FROM [Einzelbestellungen] where rechnungsID = @BestellungID and bestEssenID = @EssenID";
             SqlCommand cmd = new SqlCommand(SQL);
             cmd.Connection = Main.getConnection();
-            cmd.Parameters.AddWithValue("essenID", mahlzeit.EssenID);
-            cmd.Parameters.AddWithValue("rechnungsID", BestellungID);
+            cmd.Parameters.Add(new SqlParameter("BestellungID", BestellungID));
+            cmd.Parameters.Add(new SqlParameter("EssenID", mahlzeit.EssenID));
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
             Gesamtpreis -= mahlzeit.Preis;
 
         }
 
-        //Erstellt eine Bestellung in der Datenbank 
         public void createBestellung()
         {
             string SQL = "INSERT INTO [Bestellungen] ([orderFromID],[gesamtpreis],[ankuftszeit],[kundeID]) values(@orderFrom,@gesamt,@ankuftszeit,@kundeID); SELECT SCOPE_IDENTITY()";
@@ -111,7 +108,6 @@ namespace Sweet_Fast_BL
             cmd.Parameters.AddWithValue("gesamt", Gesamtpreis);
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
-
         }
 
         //Erstellt ein Bestellungsobjekt anhand vorhandenem in der Datenbank
