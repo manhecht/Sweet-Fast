@@ -25,32 +25,32 @@ namespace Sweet_Fast_PL
             {
                 Response.Redirect("Index.aspx");
             }
-            if (!IsPostBack)
+            if (!IsPostBack)//Erster Aufruf
             {
                 currentBusinessID = (int)Session["selectedBusiness"];
 
                 currentBusiness = Konditorei.getKonditorei(currentBusinessID);
                 best = new Bestellung(currentBusinessID, (int)Session["loggedInUser"]);
                 best.createBestellung();
-                essenImWarenkorb = Essen.getEssenFromWarenkorb(best.BestellungID);
+                
                 closingHour = currentBusiness.EndH;
 
 
 
 
-                lblFoodOrderPlaceName.Text = currentBusiness.KondName;
+                lblFoodOrderPlaceName.Text = best.BestellungID.ToString();
                 lblFoodOrderPlaceOpening.Text = "Das Lokal hat bis " + closingHour + " offen!";
                 alleSpeisen = Essen.getAllEssen(currentBusinessID);
                 GVEssen.DataSource = alleSpeisen;
                 GVEssen.DataBind();
-                GVWarenkorb.DataSource = essenImWarenkorb;
-                GVWarenkorb.DataBind();
+
+                Session["Bestellung"] = best;
             }
             else
             {
-                currentBusinessID = (int)Session["selectedBusiness"];
-
- 
+                int essenSelected = (int)Session["selected"];
+                best =(Bestellung)Session["Bestellung"];
+                lblFoodOrderPlaceName.Text = essenSelected.ToString();
                 essenImWarenkorb = Essen.getEssenFromWarenkorb(best.BestellungID);
                 alleSpeisen = Essen.getAllEssen(currentBusinessID);
                 GVEssen.DataSource = alleSpeisen;
@@ -65,7 +65,11 @@ namespace Sweet_Fast_PL
         {
             GridViewRow row = GVEssen.SelectedRow;
             int essenSelected = alleSpeisen[row.RowIndex].EssenID;
+            
             best.setEssenToBestellung(Essen.getEssen(essenSelected));
+            Session["Bestellung"] = best;
+            Session["selected"] = 2;
+
         }
     }
 }
