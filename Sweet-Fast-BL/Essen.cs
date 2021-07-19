@@ -84,13 +84,9 @@ namespace Sweet_Fast_BL
         public static List<Essen> getEssenFromWarenkorb(int bestellungID)
         {
             
-                SqlCommand cmd = new SqlCommand("select distinct bestEssenID from Einzelbestellungen where rechnungsID=@rechnungsID", Main.getConnection());
-                cmd.Parameters.Add(new SqlParameter("rechnungsID", bestellungID));
-                SqlDataReader read = cmd.ExecuteReader();
-                int essenIDWarenkorb = read.GetInt32(0);
-
-                SqlCommand cmdTwo = new SqlCommand("select * from Essen where bestEssenID=@bestEssenID", Main.getConnection());
-                cmdTwo.Parameters.Add(new SqlParameter("bestEssenID", essenIDWarenkorb));
+          
+                SqlCommand cmdTwo = new SqlCommand("select * from Essen inner join Einzelbestellungen on Essen.essenID = Einzelbestellungen.bestEssenID where Einzelbestellungen.rechnungsID=@rechnungsID", Main.getConnection());
+                cmdTwo.Parameters.Add(new SqlParameter("rechnungsID", bestellungID));
 
                 SqlDataReader reader = cmdTwo.ExecuteReader();
                 List<Essen> alleEssen = new List<Essen>();
