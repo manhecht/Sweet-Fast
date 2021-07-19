@@ -45,16 +45,7 @@ namespace Sweet_Fast_PL
             String pwd = txtPasswortRegister.Text;
             String street = txtStreetRegister.Text;
             int hausnummer = Convert.ToInt32(txtHausnummerRegister.Text);
-            try
-            {
-                int door = Convert.ToInt32(txtTürnummerRegister.Text);
-
-            }
-            catch
-            {
-
-            }
-           
+            int door = Convert.ToInt32(txtTürnummerRegister.Text);
             String telNr = txtTelefonRegister.Text;
             int plz = Convert.ToInt32(txtPLZRegister.Text);
             String ort = txtOrtRegister.Text;
