@@ -53,7 +53,7 @@ namespace Sweet_Fast_PL
             {
                 currentBusinessID = (int)Session["selectedBusiness"];
                 best = (Bestellung)Session["Bestellung"];
-
+                
             }
 
 
@@ -68,12 +68,22 @@ namespace Sweet_Fast_PL
             best.setEssenToBestellung(Essen.getEssen(essenSelected));
             Session["Bestellung"] = best;
             Session["selected"] = essenSelected;
-
+            essenImWarenkorb = Essen.getEssenFromWarenkorb(best.BestellungID);
+            GVWarenkorb.DataSource = essenImWarenkorb;
+            GVWarenkorb.DataBind();
+            
         }
 
         protected void GVWarenkorb_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            GridViewRow row = GVWarenkorb.SelectedRow;
+            essenSelected = Essen.getAllEssen(currentBusinessID)[row.RowIndex].EssenID;
+            best.removeEssenFromBestellung(Essen.getEssen(essenSelected));
+            Session["Bestellung"] = best;
+            Session["selected"] = essenSelected;
+            essenImWarenkorb = Essen.getEssenFromWarenkorb(best.BestellungID);
+            GVWarenkorb.DataSource = essenImWarenkorb;
+            GVWarenkorb.DataBind();
         }
     }
 }

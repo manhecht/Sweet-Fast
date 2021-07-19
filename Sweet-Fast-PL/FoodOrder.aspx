@@ -34,7 +34,7 @@
             <asp:Label ID="lblWarenkorb" runat="server" Text="Warenkorb"></asp:Label>
             <asp:GridView ID="GVWarenkorb" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GVWarenkorb_SelectedIndexChanged" EmptyDataText="Keine Kunden in der Datenbank">
                 <Columns>
-                    <asp:CommandField ShowDeleteButton="True" />
+                    <asp:CommandField SelectText="Löschen" ShowSelectButton="True" />
                     <asp:BoundField DataField="foodName" />
                     <asp:BoundField DataField="preis" />
                 </Columns>
