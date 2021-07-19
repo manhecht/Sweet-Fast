@@ -110,6 +110,36 @@ namespace Sweet_Fast_BL
 
 
         }
+
+        public static bool registrierenTwo(String vorname, String zuname, String passwort, String strasse, int hNr,  String telNr, int plz, String ort, String email)
+        {
+            try
+            {
+                string SQL = "INSERT INTO [User] ([vorname],[zuname],[passwort],[email],[telefonnummer],[strasse],[hausnummer],[plz],[ort]) values(@vorname,@zuname,@passwort,@email,@telefonnummer,@strasse,@hausnummer,@plz,@ort)";
+                SqlCommand cmd = new SqlCommand(SQL);
+                cmd.Connection = Main.getConnection();
+                cmd.Parameters.AddWithValue("vorname", vorname);
+                cmd.Parameters.AddWithValue("zuname", zuname);
+                cmd.Parameters.AddWithValue("passwort", passwort);
+                cmd.Parameters.AddWithValue("email", email);
+                cmd.Parameters.AddWithValue("telefonnummer", telNr);
+                cmd.Parameters.AddWithValue("strasse", strasse);
+                cmd.Parameters.AddWithValue("hausnummer", hNr);
+              
+                cmd.Parameters.AddWithValue("plz", plz);
+                cmd.Parameters.AddWithValue("ort", ort);
+                cmd.ExecuteNonQuery();
+
+                cmd.Connection.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+
+        }
         private static User fillUserFromSQLDataReader(SqlDataReader reader)
         {
             User einKunde = new User();
