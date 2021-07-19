@@ -14,24 +14,32 @@
             <br />
             <asp:Label ID="lblFoodOrderPlaceOpening" runat="server"></asp:Label>
         </div>
-        <asp:GridView ID="GVEssen" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="GVEssen" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GVEssen_SelectedIndexChanged"
+            
+ >
             <Columns>
-                <asp:BoundField HeaderText="Essen" DataField="foodName" />
-                <asp:BoundField HeaderText="Preis" DataField="preis" />
-                <asp:ButtonField Text="In den Warenkorb!" />
+                <asp:CommandField SelectText="Zum Warenkorb hinzufügen" ShowSelectButton="True" />
+                <asp:BoundField HeaderText="Essen" DataField="foodName" SortExpression="foodName" />
+                <asp:BoundField HeaderText="Preis" DataField="preis" SortExpression="preis" />
             </Columns>
         </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ZitateConnectionString %>" SelectCommand="SELECT [foodName], [preis] FROM [Essen] WHERE ([unternehmenID] = @unternehmenID)">
+            <SelectParameters>
+                <asp:SessionParameter Name="unternehmenID" SessionField="currentBusiness" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
         <br />
         
         <div id="divWarenkorb">
             <asp:Label ID="lblWarenkorb" runat="server" Text="Warenkorb"></asp:Label>
-            <asp:GridView ID="GVWarenkorb" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GVWarenkorb_SelectedIndexChanged">
+            <asp:GridView ID="GVWarenkorb" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GVWarenkorb_SelectedIndexChanged" EmptyDataText="Keine Kunden in der Datenbank">
                 <Columns>
-                    <asp:BoundField HeaderText="Essen" DataField="foodName" />
-                    <asp:BoundField HeaderText="Preis" DataField="preis" />
-                    <asp:ButtonField Text="Löschen!" />
+                    <asp:CommandField ShowDeleteButton="True" />
+                    <asp:BoundField DataField="foodName" />
+                    <asp:BoundField DataField="preis" />
                 </Columns>
             </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
         </div>
     </form>
 </body>

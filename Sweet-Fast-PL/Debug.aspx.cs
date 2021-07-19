@@ -10,32 +10,16 @@ namespace Sweet_Fast_PL
 {
     public partial class Contact : Page
     {
+        List<Essen> essenImWarenkorb;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
         }
 
         protected void btnDebug_Click(object sender, EventArgs e)
         {
-            if (Sweet_Fast_BL.User.checkDuplicate("makjsijdposaf"))
-            {
-                lblDebug.Text = "Email schon vergeben";
-            } 
-            else
-            {
-                lblDebug.Text = "Email frei";
-            }
-            
-            
-            /*
-            Bestellung best = new Sweet_Fast_BL.Bestellung(2, );
-            best.createBestellung();
-            best.setEssenToBestellung(Essen.getEssen(2));
-            best.removeEssenFromBestellung(Essen.getEssen(2));
-            best.setEssenToBestellung(Essen.getEssen(1));
-            best.bestellen();
-           Bestellung neu=  Bestellung.getBestellung(best.BestellungID);
-            lblDebug.Text = neu.Gesamtpreis.ToString(); */
+            essenImWarenkorb = Essen.getEssenFromWarenkorb(123);
+            lblDebug.Text = essenImWarenkorb[0].FoodName.ToString();
 
         }
     }

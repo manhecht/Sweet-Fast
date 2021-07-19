@@ -83,8 +83,7 @@ namespace Sweet_Fast_BL
         }
         public static List<Essen> getEssenFromWarenkorb(int bestellungID)
         {
-            try
-            {
+            
                 SqlCommand cmd = new SqlCommand("select distinct bestEssenID from Einzelbestellungen where rechnungsID=@rechnungsID", Main.getConnection());
                 cmd.Parameters.Add(new SqlParameter("rechnungsID", bestellungID));
                 SqlDataReader read = cmd.ExecuteReader();
@@ -103,8 +102,7 @@ namespace Sweet_Fast_BL
 
 
                 return alleEssen;
-            }
-            catch { return null; }
+          
         }
        
     }

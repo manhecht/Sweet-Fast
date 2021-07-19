@@ -51,6 +51,15 @@ namespace Sweet_Fast_PL
         protected global::System.Web.UI.WebControls.GridView GVEssen;
 
         /// <summary>
+        /// SqlDataSource1-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+
+        /// <summary>
         /// lblWarenkorb-Steuerelement
         /// </summary>
         /// <remarks>
@@ -67,5 +76,14 @@ namespace Sweet_Fast_PL
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GVWarenkorb;
+
+        /// <summary>
+        /// SqlDataSource2-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
     }
 }

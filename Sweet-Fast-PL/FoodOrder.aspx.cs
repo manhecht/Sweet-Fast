@@ -16,8 +16,8 @@ namespace Sweet_Fast_PL
         String closingHour;
         List<Essen> essenImWarenkorb;
         List<Essen> alleSpeisen;
-       Bestellung best;
-        
+        Bestellung best;
+        int essenSelected;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,37 +38,36 @@ namespace Sweet_Fast_PL
 
 
 
-                lblFoodOrderPlaceName.Text = best.BestellungID.ToString();
+                lblFoodOrderPlaceName.Text = best.Gesamtpreis.ToString();
                 lblFoodOrderPlaceOpening.Text = "Das Lokal hat bis " + closingHour + " offen!";
                 alleSpeisen = Essen.getAllEssen(currentBusinessID);
                 GVEssen.DataSource = alleSpeisen;
                 GVEssen.DataBind();
 
                 Session["Bestellung"] = best;
+                Session["selected"] = essenSelected;
+                Session["selectedBusiness"] = currentBusinessID;
+
             }
             else
             {
-                int essenSelected = (int)Session["selected"];
-                best =(Bestellung)Session["Bestellung"];
-                lblFoodOrderPlaceName.Text = essenSelected.ToString();
-                essenImWarenkorb = Essen.getEssenFromWarenkorb(best.BestellungID);
-                alleSpeisen = Essen.getAllEssen(currentBusinessID);
-                GVEssen.DataSource = alleSpeisen;
-                GVEssen.DataBind();
-                GVWarenkorb.DataSource = essenImWarenkorb;
-                GVWarenkorb.DataBind();
+                currentBusinessID = (int)Session["selectedBusiness"];
+                best = (Bestellung)Session["Bestellung"];
+
             }
+
 
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GVEssen_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+
             GridViewRow row = GVEssen.SelectedRow;
-            int essenSelected = alleSpeisen[row.RowIndex].EssenID;
-            
+            essenSelected = Essen.getAllEssen(currentBusinessID)[row.RowIndex].EssenID;
             best.setEssenToBestellung(Essen.getEssen(essenSelected));
             Session["Bestellung"] = best;
-            Session["selected"] = 2;
+            Session["selected"] = essenSelected;
 
         }
 
