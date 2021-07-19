@@ -67,5 +67,10 @@ namespace Sweet_Fast_PL
             int essenSelected = alleSpeisen[row.RowIndex].EssenID;
             best.setEssenToBestellung(Essen.getEssen(essenSelected));
         }
+
+        protected void GVWarenkorb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
