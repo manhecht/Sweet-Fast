@@ -63,8 +63,6 @@ namespace Sweet_Fast_BL
         public void setEssenToBestellung(Essen mahlzeit)
         {
 
-  
-
             string SQL = "INSERT INTO [Einzelbestellungen] ([bestEssenID],[rechnungsID]) values(@essenID,@rechnungsID)";
             SqlCommand cmd = new SqlCommand(SQL);
             cmd.Connection = Main.getConnection();
@@ -74,6 +72,18 @@ namespace Sweet_Fast_BL
             cmd.Connection.Close();
             Gesamtpreis += mahlzeit.Preis;//Erhöht Preis
             
+        }
+        public void removeEssenFromBestellung(Essen mahlzeit)
+        {
+            string SQL = "DELETE INTO [Einzelbestellungen] ([bestEssenID],[rechnungsID]) values(@essenID,@rechnungsID)";
+            SqlCommand cmd = new SqlCommand(SQL);
+            cmd.Connection = Main.getConnection();
+            cmd.Parameters.AddWithValue("essenID", mahlzeit.EssenID);
+            cmd.Parameters.AddWithValue("rechnungsID", BestellungID);
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+            Gesamtpreis -= mahlzeit.Preis;
+
         }
 
         //Erstellt eine Bestellung in der Datenbank 
@@ -101,7 +111,6 @@ namespace Sweet_Fast_BL
             cmd.Parameters.AddWithValue("gesamt", Gesamtpreis);
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
-
 
         }
 
