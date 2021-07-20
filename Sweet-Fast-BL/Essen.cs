@@ -81,7 +81,7 @@ namespace Sweet_Fast_BL
 
             return alleEssen;
         }
-        public static List<Essen> getEssenFromWarenkorb(int bestellungID)
+        public static List<Essen> getEssenFromBestellung(int bestellungID)
         {
             
           

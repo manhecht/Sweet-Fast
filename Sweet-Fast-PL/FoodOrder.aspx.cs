@@ -37,6 +37,7 @@ namespace Sweet_Fast_PL
                 closingHour = currentBusiness.EndH;
 
 
+                lblGesamtpreisZahlWarenkorb.Text = best.Gesamtpreis.ToString();
 
 
                 lblFoodOrderPlaceName.Text = currentBusiness.KondName;
@@ -70,10 +71,11 @@ namespace Sweet_Fast_PL
             best.setEssenToBestellung(Essen.getEssen(essenSelected));
             Session["Bestellung"] = best;
             Session["selected"] = essenSelected;
-            essenImWarenkorb = Essen.getEssenFromWarenkorb(best.BestellungID);
+            essenImWarenkorb = Essen.getEssenFromBestellung(best.BestellungID);
             GVWarenkorb.DataSource = essenImWarenkorb;
             GVWarenkorb.DataBind();
 
+            lblGesamtpreisZahlWarenkorb.Text = best.Gesamtpreis.ToString();
 
         }
 
@@ -82,15 +84,29 @@ namespace Sweet_Fast_PL
 
             GridViewRow row = GVWarenkorb.SelectedRow;
 
-            essenSelected = Essen.getEssenFromWarenkorb(best.BestellungID)[row.RowIndex].EssenID;
+            essenSelected = Essen.getEssenFromBestellung(best.BestellungID)[row.RowIndex].EssenID;
             best.removeEssenFromBestellung(Essen.getEssen(essenSelected));
             Session["Bestellung"] = best;
             Session["selected"] = essenSelected;
-            essenImWarenkorb = Essen.getEssenFromWarenkorb(best.BestellungID);
+            essenImWarenkorb = Essen.getEssenFromBestellung(best.BestellungID);
             GVWarenkorb.DataSource = essenImWarenkorb;  
             GVWarenkorb.DataBind();
+            lblGesamtpreisZahlWarenkorb.Text = best.Gesamtpreis.ToString();
 
-            
+
+        }
+
+        protected void btnBestellen_Click(object sender, EventArgs e)
+        {
+            if (best.Gesamtpreis != 0)
+            {
+                best.bestellen();
+                Response.Redirect("Endscreen.aspx");
+            }
+            else
+            {
+                lblWarnungWarenkorb.Text="Kein Produkt ausgewählt";
+            }
         }
     }
 }

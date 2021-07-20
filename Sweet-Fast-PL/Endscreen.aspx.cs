@@ -10,22 +10,26 @@ namespace Sweet_Fast_PL
 {
     public partial class Endscreen : System.Web.UI.Page
     {
-        Random rnd;
-        int deliverytime;
+  
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            String user = "RoboGrischa";
-            String orderFrom = "McDonalds";
+            if (Session["loggedInUser"] == null)
+            {
+                Response.Redirect("Index.aspx");
+            }
 
+            String vorname = Sweet_Fast_BL.User.getUser((int)Session["loggedInUser"]).Vorname;
+            String zuname = Sweet_Fast_BL.User.getUser((int)Session["loggedInUser"]).Zuname;
 
-            lblThanks.Text = "Vielen Dank für Ihre Bestellung von " + orderFrom + ", " + user + "!";
+            int orderFromID = (int)Session["selectedBusiness"];
+            String orderFrom = Konditorei.getKonditorei(orderFromID).KondName;
+            Bestellung best = (Bestellung)Session["Bestellung"];
 
-            rnd = new Random();
-            deliverytime = rnd.Next(25, 142);
+            lblThanks.Text = "Vielen Dank für Ihre Bestellung von " + orderFrom + ", " + vorname +" "+zuname +"!";
 
-            lblDeliveryTime.Text = "Ihre Bestellung komm in " + deliverytime.ToString() + " Minuten an!";
+            lblDeliveryTime.Text = "Ihre Bestellung kommt pünktlich um " + best.Ankunftszeit.ToString() + " an!";
 
 
         }
@@ -38,6 +42,7 @@ namespace Sweet_Fast_PL
         protected void btnLogOut_Click(object sender, EventArgs e)
         {
             Response.Redirect("Index.aspx");
+            Session["loggedInUser"] = "";
         }
     }
 }

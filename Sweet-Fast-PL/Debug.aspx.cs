@@ -18,7 +18,7 @@ namespace Sweet_Fast_PL
 
         protected void btnDebug_Click(object sender, EventArgs e)
         {
-            essenImWarenkorb = Essen.getEssenFromWarenkorb(123);
+            essenImWarenkorb = Essen.getEssenFromBestellung(123);
             lblDebug.Text = essenImWarenkorb[0].FoodName.ToString();
 
         }

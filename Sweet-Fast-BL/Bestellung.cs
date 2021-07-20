@@ -15,7 +15,6 @@ namespace Sweet_Fast_BL
         private decimal gesamtpreis;
         private TimeSpan ankunftszeit;
         private int kundeID;
-        private List<Essen> essensliste = new List<Essen>();
 
         public int BestellungID
         {
@@ -42,11 +41,7 @@ namespace Sweet_Fast_BL
             get { return kundeID; }
             internal set { kundeID = value; }
         }
-        public List<Essen> Essensliste
-        {
-            get { return essensliste; }
-            internal set { essensliste = value; }
-        }
+
         //Erstellt eine Bestellungsobjekt 
 
        public Bestellung(int konditorID, int bestellerID)
@@ -93,7 +88,7 @@ namespace Sweet_Fast_BL
             cmd.Parameters.AddWithValue("gesamt", 0);
             cmd.Parameters.AddWithValue("ankuftszeit", DateTime.Now.AddMinutes(30).TimeOfDay);
             cmd.Parameters.AddWithValue("kundeID", KundeID);
-
+            this.Ankunftszeit = DateTime.Now.AddMinutes(30).TimeOfDay;
             this.BestellungID = Convert.ToInt32(cmd.ExecuteScalar());//returned erstellte ID und speichert diese -> PL sollte diese im Session aufbewahren um nachher getBestellung() aufrufen zu können
             cmd.Connection.Close();
         }

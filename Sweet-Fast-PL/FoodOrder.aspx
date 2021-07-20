@@ -41,6 +41,12 @@
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
         </div>
+        <asp:Label ID="lblGesamtpreisWarenkorb" runat="server" Text="Gesamtpreis"></asp:Label>
+        <asp:Label ID="lblGesamtpreisZahlWarenkorb" runat="server"></asp:Label>
+        <p>
+            <asp:Button ID="btnBestellen" runat="server" OnClick="btnBestellen_Click" Text="Bestellen!" />
+            <asp:Label ID="lblWarnungWarenkorb" runat="server" ForeColor="Red"></asp:Label>
+        </p>
     </form>
 </body>
 </html>

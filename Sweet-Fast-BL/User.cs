@@ -128,6 +128,7 @@ namespace Sweet_Fast_BL
 
                 cmd.Parameters.AddWithValue("plz", plz);
                 cmd.Parameters.AddWithValue("ort", ort);
+                
                 cmd.ExecuteNonQuery();
 
                 cmd.Connection.Close();
