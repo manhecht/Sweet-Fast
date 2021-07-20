@@ -73,7 +73,7 @@ namespace Sweet_Fast_BL
         }
         public void removeEssenFromBestellung(Essen mahlzeit)
         {
-            string SQL = "DELETE  FROM [Einzelbestellungen] where rechnungsID = @BestellungID and bestEssenID = @EssenID";
+            string SQL = "DELETE TOP (1) FROM [Einzelbestellungen] where rechnungsID = @BestellungID and bestEssenID = @EssenID";
             SqlCommand cmd = new SqlCommand(SQL);
             cmd.Connection = Main.getConnection();
             cmd.Parameters.Add(new SqlParameter("BestellungID", BestellungID));

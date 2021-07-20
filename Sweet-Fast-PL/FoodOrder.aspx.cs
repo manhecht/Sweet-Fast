@@ -18,6 +18,7 @@ namespace Sweet_Fast_PL
         List<Essen> alleSpeisen;
         Bestellung best;
         int essenSelected;
+        int essenDeleteSelected;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,7 +39,7 @@ namespace Sweet_Fast_PL
 
 
 
-                lblFoodOrderPlaceName.Text = best.Gesamtpreis.ToString();
+                lblFoodOrderPlaceName.Text = currentBusiness.KondName;
                 lblFoodOrderPlaceOpening.Text = "Das Lokal hat bis " + closingHour + " offen!";
                 alleSpeisen = Essen.getAllEssen(currentBusinessID);
                 GVEssen.DataSource = alleSpeisen;
@@ -47,13 +48,14 @@ namespace Sweet_Fast_PL
                 Session["Bestellung"] = best;
                 Session["selected"] = essenSelected;
                 Session["selectedBusiness"] = currentBusinessID;
+                Session["dselected"] = essenDeleteSelected;
 
             }
             else
             {
                 currentBusinessID = (int)Session["selectedBusiness"];
                 best = (Bestellung)Session["Bestellung"];
-                
+                essenDeleteSelected = (int)Session["dselected"];
             }
 
 
@@ -71,19 +73,24 @@ namespace Sweet_Fast_PL
             essenImWarenkorb = Essen.getEssenFromWarenkorb(best.BestellungID);
             GVWarenkorb.DataSource = essenImWarenkorb;
             GVWarenkorb.DataBind();
-            
+
+
         }
 
         protected void GVWarenkorb_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             GridViewRow row = GVWarenkorb.SelectedRow;
-            essenSelected = Essen.getAllEssen(currentBusinessID)[row.RowIndex].EssenID;
+
+            essenSelected = Essen.getEssenFromWarenkorb(best.BestellungID)[row.RowIndex].EssenID;
             best.removeEssenFromBestellung(Essen.getEssen(essenSelected));
             Session["Bestellung"] = best;
             Session["selected"] = essenSelected;
             essenImWarenkorb = Essen.getEssenFromWarenkorb(best.BestellungID);
-            GVWarenkorb.DataSource = essenImWarenkorb;
+            GVWarenkorb.DataSource = essenImWarenkorb;  
             GVWarenkorb.DataBind();
+
+            
         }
     }
 }

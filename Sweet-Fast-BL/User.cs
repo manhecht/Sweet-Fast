@@ -155,7 +155,6 @@ namespace Sweet_Fast_BL
             {
                 return false;
             }
-            cmd.Connection.Close();
         }
 
 
