@@ -29,7 +29,7 @@ namespace Sweet_Fast_PL
 
             lblThanks.Text = "Vielen Dank für Ihre Bestellung von " + orderFrom + ", " + vorname +" "+zuname +"!";
 
-            lblDeliveryTime.Text = "Ihre Bestellung kommt pünktlich um " + best.Ankunftszeit.ToString() + " an!";
+            lblDeliveryTime.Text = "Ihre Bestellung kommt pünktlich in " + (DateTime.Now-best.Ankunftszeit).Minute.ToString() + " Minuten an!";
             List<Essen> bestelltesEssen = Essen.getEssenFromBestellung(best.BestellungID);
             GVEndscreen.DataSource = bestelltesEssen;
             GVEndscreen.DataBind();
