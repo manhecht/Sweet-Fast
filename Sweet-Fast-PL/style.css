@@ -1,2 +1,57 @@
 ﻿body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #EF476F;
+    background-color: lavenderblush;
+    vertical-align: middle;
+    margin-top: 13vw;
 }
+
+h3 {
+    font-size: 40px;
+    text-align: center;
+    width: 70vw;
+    margin-left: 10vw;
+}
+#divLogin{
+    width: 90vw;
+    
+}
+.loginInput {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+.registerInput {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+#divRegister {
+    width: 90vw;
+}
+.registerInput div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttonClick {
+    background-color: lavenderblush;
+    border: 3px solid #5C5D67;
+    color: #EF476F;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: x-large;
+    margin-left: 250px;
+    border-radius: 18px;
+}
+
+.buttonClick:focus {
+        background-color: #EF476F;
+        color: lavenderblush;
+        transition: 0.5s;
+    }
