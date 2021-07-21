@@ -13,6 +13,8 @@
             <asp:Label ID="lblThanks" runat="server"></asp:Label>
             <br />
             <asp:Label ID="lblDeliveryTime" runat="server"></asp:Label>
+            <br />
+            <asp:Label ID="lblBestellung" runat="server" Font-Bold="True" Text="Deine Bestellung"></asp:Label>
         </div>
         <asp:GridView ID="GVEndscreen" runat="server" AutoGenerateColumns="False">
             <Columns>
