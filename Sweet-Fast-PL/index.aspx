@@ -48,13 +48,13 @@
                     </div>
                 <div class="register2">
             <asp:TextBox ID="txtStreetRegister" runat="server" placeholder="Straße" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" Font-Size="X-Large" ForeColor="#EF476F" Height="50px" style="margin-right: 25px; margin-bottom: 15px" Width="550px"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvStrasseRegister" runat="server" ControlToValidate="txtStreetRegister" Display="Dynamic" ErrorMessage="!" ForeColor="Red" ValidationGroup="vldRegister"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvStrasseRegister" runat="server" ControlToValidate="txtStreetRegister" Display="Dynamic" ErrorMessage="!" ForeColor="#EF467F" ValidationGroup="vldRegister" Font-Size="X-Large"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="revStrasseRegister" runat="server" ControlToValidate="txtStreetRegister" Display="Dynamic" ErrorMessage="Straße inkorrekt" ForeColor="#EF476F" ValidationExpression="[\w\s]{0,50}" Font-Size="X-Large"></asp:RegularExpressionValidator>
             <asp:TextBox ID="txtHausnummerRegister" runat="server" placeholder="Hausnummer" Width="100px" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" Font-Size="X-Large" ForeColor="#EF476F" Height="50px" style="margin-right: 25px; margin-bottom: 15px"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvHausnummerRegister" runat="server" ControlToValidate="txtHausnummerRegister" Display="Dynamic" ErrorMessage="!" ForeColor="Red" ValidationGroup="vldRegister"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvHausnummerRegister" runat="server" ControlToValidate="txtHausnummerRegister" Display="Dynamic" ErrorMessage="!" ForeColor="#EF467F" ValidationGroup="vldRegister" Font-Size="X-Large"></asp:RequiredFieldValidator>
             <asp:RangeValidator ID="rvHausnummerRegister" runat="server" ControlToValidate="txtHausnummerRegister" Display="Dynamic" ErrorMessage="Hausnummer inkorrekt" ForeColor="#EF476F" MaximumValue="2000" MinimumValue="1" Type="Integer" Font-Size="X-Large"></asp:RangeValidator>
             <asp:TextBox ID="txtTürnummerRegister" runat="server" placeholder="Türnummer" Width="100px" BorderColor="Black" BorderStyle="Solid" BorderWidth="3px" Font-Size="X-Large" ForeColor="#EF476F" Height="50px" style="margin-bottom: 15px"></asp:TextBox>
-            <asp:RangeValidator ID="rvTürnummerRegister" runat="server" ControlToValidate="txtTürnummerRegister" Display="Dynamic" ErrorMessage="Türnummer inkorrekt" ForeColor="Red" MaximumValue="2000" MinimumValue="0" Type="Integer"></asp:RangeValidator>
+            <asp:RangeValidator ID="rvTürnummerRegister" runat="server" ControlToValidate="txtTürnummerRegister" Display="Dynamic" ErrorMessage="Türnummer inkorrekt" ForeColor="#EF467F" MaximumValue="2000" MinimumValue="0" Type="Integer" Font-Size="X-Large"></asp:RangeValidator>
             <br />
                     </div>
                     <div class="register3">
@@ -78,7 +78,7 @@
             <asp:RegularExpressionValidator ID="revPasswortRegister" runat="server" ControlToValidate="txtPasswortRegister" Display="Dynamic" ErrorMessage="Passwort inkorrekt" ForeColor="#EF476F" ValidationExpression="[\w\s]{0,50}" Font-Size="X-Large"></asp:RegularExpressionValidator>
             <br />
                     </div>
-            <asp:Button ID="btnRegister" runat="server" Text="Registrieren" OnClick="btnRegister_Click" CssClass="buttonClick" Font-Bold="True" Height="70px" Width="300px" />
+            <asp:Button ID="btnRegister" runat="server" Text="Registrieren" OnClick="btnRegister_Click" CssClass="buttonClick" Font-Bold="True" Height="70px" Width="300px" ValidationGroup="vldRegister" />
                 </div>
         </div>
     </form>
