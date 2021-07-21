@@ -6,6 +6,7 @@
     align-content: center;
     display:flex;
     margin: 5vw;
+    text-align: center;
 }
 .header {
     font-size: 50px;
@@ -18,11 +19,12 @@
     font-size: 50px;
     width: 90%;
     margin: 5vw;
-    color: #EF476F;
+        color: #EF476F;
     align-items: flex-end;
     display: inline-table;
     text-align: center;
     margin-top: 40px;
+    text-decoration: none;
 }
 .buttonFinalScreen {
     text-align: center;
@@ -41,6 +43,7 @@
     text-decoration: none;
     display: inline-block;
     font-size: xxx-large;
+    border-radius: 18px;
 }
     .buttonClick:focus {
         background-color: #EF476F;

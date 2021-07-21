@@ -87,15 +87,6 @@ namespace Sweet_Fast_PL
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
 
         /// <summary>
-        /// lblGesamtpreisWarenkorb-Steuerelement
-        /// </summary>
-        /// <remarks>
-        /// Automatisch generiertes Feld
-        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGesamtpreisWarenkorb;
-
-        /// <summary>
         /// lblGesamtpreisZahlWarenkorb-Steuerelement
         /// </summary>
         /// <remarks>
