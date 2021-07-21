@@ -44,36 +44,15 @@ namespace Sweet_Fast_PL
             String nachname = txtZunameRegister.Text;
             String pwd = txtPasswortRegister.Text;
             String street = txtStreetRegister.Text;
-            int door=0;
             int hausnummer = Convert.ToInt32(txtHausnummerRegister.Text);
-            try
-            {
-                door= Convert.ToInt32(txtTürnummerRegister.Text);
-
-            }
-            catch
-            {
-
-            }
-           
+            int door = Convert.ToInt32(txtTürnummerRegister.Text);
             String telNr = txtTelefonRegister.Text;
             int plz = Convert.ToInt32(txtPLZRegister.Text);
             String ort = txtOrtRegister.Text;
             String email = txtEmailRegister.Text;
-            bool erfolgreich;
-            if (door == 0)
-            {
-                 erfolgreich = Sweet_Fast_BL.User.registrierenTwo(vorname, nachname, pwd, street, hausnummer, telNr, plz, ort, email);
 
+            bool erfolgreich = Sweet_Fast_BL.User.registrieren(vorname, nachname, pwd,street,hausnummer,door,telNr,plz,ort,email);
 
-            }
-            else
-            {
-                 erfolgreich = Sweet_Fast_BL.User.registrieren(vorname, nachname, pwd, street, hausnummer, door, telNr, plz, ort, email);
-
-            }
-            
-            
             if (erfolgreich)
             {
                 lblResponse.Text = "Danke " + vorname + " du hast dich erfolgreich registriert! Jetzt kannst du dich einloggen";
