@@ -1,2 +1,57 @@
 ﻿body {
+    background-color: #fadadd;
+}
+
+.content{
+    align-content: center;
+    display:flex;
+    margin: 5vw;
+}
+.header {
+    font-size: 50px;
+    color: #EF476F;
+    text-align: center;
+    display: inline-block;
+}
+
+.order {
+    font-size: 50px;
+    width: 90%;
+    margin: 5vw;
+    color: #EF476F;
+    align-items: flex-end;
+    display: inline-table;
+    text-align: center;
+    margin-top: 40px;
+}
+.buttonFinalScreen {
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+}
+
+
+
+.buttonClick {
+    background-color: lavenderblush;
+    border: 1px solid #5C5D67;
+    color: #EF476F;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: xxx-large;
+}
+    .buttonClick:focus {
+        background-color: #EF476F;
+        color: lavenderblush;
+        transition: 0.5s;
+    }
+
+.bestellungUeberschrift {
+    font-size: 50px;
+    color: #EF476F;
+}
+.orderStuff {
+    align-items: center;
 }

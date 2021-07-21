@@ -34,6 +34,8 @@ namespace Sweet_Fast_PL
             GVEndscreen.DataSource = bestelltesEssen;
             GVEndscreen.DataBind();
 
+            lblGesamtpreisZahlWarenkorb.Text = "Der Gesamtpreis beträgt: " + best.Gesamtpreis.ToString("#.##") + " €";
+
         }
 
         protected void btnReorder_Click(object sender, EventArgs e)
@@ -46,5 +48,7 @@ namespace Sweet_Fast_PL
             Response.Redirect("Index.aspx");
             Session["loggedInUser"] = "";
         }
+
+
     }
 }

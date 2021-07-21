@@ -20,7 +20,7 @@
             <Columns>
                 <asp:CommandField SelectText="Zum Warenkorb hinzufügen" ShowSelectButton="True" />
                 <asp:BoundField HeaderText="Essen" DataField="foodName" SortExpression="foodName" />
-                <asp:BoundField HeaderText="Preis" DataField="preis" SortExpression="preis" />
+                <asp:BoundField HeaderText="Preis(€)" DataField="preis" SortExpression="preis" DataFormatString="{0:N2}"/>
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ZitateConnectionString %>" SelectCommand="SELECT [foodName], [preis] FROM [Essen] WHERE ([unternehmenID] = @unternehmenID)">
@@ -36,13 +36,13 @@
                 <Columns>
                     <asp:CommandField SelectText="Löschen" ShowSelectButton="True" />
                     <asp:BoundField DataField="foodName" />
-                    <asp:BoundField DataField="preis" />
+                    <asp:BoundField DataField="preis" DataFormatString="{0:N2}"/>
                 </Columns>
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
         </div>
         <asp:Label ID="lblGesamtpreisWarenkorb" runat="server" Text="Gesamtpreis"></asp:Label>
-        <asp:Label ID="lblGesamtpreisZahlWarenkorb" runat="server"></asp:Label>
+        <asp:Label ID="lblGesamtpreisZahlWarenkorb" runat="server" DataFormatString="{0:N2}" ></asp:Label>
         <p>
             <asp:Button ID="btnBestellen" runat="server" OnClick="btnBestellen_Click" Text="Bestellen!" />
             <asp:Label ID="lblWarnungWarenkorb" runat="server" ForeColor="Red"></asp:Label>

@@ -75,8 +75,7 @@ namespace Sweet_Fast_PL
             GVWarenkorb.DataSource = essenImWarenkorb;
             GVWarenkorb.DataBind();
 
-            lblGesamtpreisZahlWarenkorb.Text = best.Gesamtpreis.ToString();
-
+            lblGesamtpreisZahlWarenkorb.Text = best.Gesamtpreis.ToString("#.##");
         }
 
         protected void GVWarenkorb_SelectedIndexChanged(object sender, EventArgs e)
@@ -91,7 +90,7 @@ namespace Sweet_Fast_PL
             essenImWarenkorb = Essen.getEssenFromBestellung(best.BestellungID);
             GVWarenkorb.DataSource = essenImWarenkorb;  
             GVWarenkorb.DataBind();
-            lblGesamtpreisZahlWarenkorb.Text = best.Gesamtpreis.ToString();
+            lblGesamtpreisZahlWarenkorb.Text = best.Gesamtpreis.ToString("#.##");
 
 
         }
