@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.DynamicData;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -27,7 +28,7 @@ namespace Sweet_Fast_PL
                  userID = (int)Session["loggedInUser"];
             }
 
-
+         
             lblHalloUser.Text = "Hallo " + Sweet_Fast_BL.User.getUser(userID).Vorname + " diese Unternehmen liefern zu dir: ";
             GVKonditorei.DataSource = kon;
             GVKonditorei.DataBind();
@@ -37,7 +38,32 @@ namespace Sweet_Fast_PL
         {
             GridViewRow row = GVKonditorei.SelectedRow;
             Session["selectedBusiness"] = kon[row.RowIndex].KondID;
-            Response.Redirect("FoodOrder.aspx");
+            bool offen = Konditorei.checkÖffnungszeit(kon[row.RowIndex].KondID);
+            if (offen)
+            {
+                Response.Redirect("FoodOrder.aspx");
+            }
+            else
+            {
+               
+            }
+           
+        }
+           public string öffnung(int kondID)
+        {
+
+            bool offen = Konditorei.checkÖffnungszeit(kondID);
+            if (offen)
+            {
+                return "geöffnet";
+
+            }
+            else
+            {
+                return "geschlossen";
+            }
+
+     
         }
     }
 }

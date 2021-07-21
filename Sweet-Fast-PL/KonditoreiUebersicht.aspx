@@ -13,13 +13,22 @@
             
             <asp:Label ID="lblHalloUser" runat="server"></asp:Label>
             
-            <asp:GridView ID="GVKonditorei" runat="server" AutoGenerateColumns="False" EmptyDataText="Keine Lokale in der Datenbank" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GVKonditorei_SelectedIndexChanged" >
+            <asp:GridView ID="GVKonditorei" runat="server" AutoGenerateColumns="False"  EmptyDataText="Keine Lokale in der Datenbank" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GVKonditorei_SelectedIndexChanged" >
                 <Columns>
+                    <asp:BoundField DataField="kondID" Visible="False" />
                     <asp:BoundField DataField="kondName" HeaderText="Name" />
                     <asp:BoundField DataField="businessType" HeaderText="Typ" />
-                    <asp:BoundField DataField="startH" HeaderText="derzeit geöffnet?" />
+                    <asp:TemplateField HeaderText="derzeit geöffnet?">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblTemplate" runat="server" Text='<%# öffnung(Convert.ToInt32(Eval("kondID"))) %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
         </div>
     </form>
 </body>
