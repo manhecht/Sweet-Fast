@@ -10,16 +10,16 @@ namespace Sweet_Fast_PL
 {
     public partial class Contact : Page
     {
-        Bestellung best = new Sweet_Fast_BL.Bestellung(2,2);
+        List<Essen> essenImWarenkorb;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
         }
 
         protected void btnDebug_Click(object sender, EventArgs e)
         {
-            best.setEssenToBestellung(Essen.getEssen(1));
-            lblDebug.Text =best.BestellungID.ToString();
+            essenImWarenkorb = Essen.getEssenFromBestellung(123);
+            lblDebug.Text = essenImWarenkorb[0].FoodName.ToString();
 
         }
     }

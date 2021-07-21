@@ -13,7 +13,15 @@
             <asp:Label ID="lblThanks" runat="server"></asp:Label>
             <br />
             <asp:Label ID="lblDeliveryTime" runat="server"></asp:Label>
+            <br />
+            <asp:Label ID="lblBestellung" runat="server" Font-Bold="True" Text="Deine Bestellung"></asp:Label>
         </div>
+        <asp:GridView ID="GVEndscreen" runat="server" AutoGenerateColumns="False">
+            <Columns>
+                <asp:BoundField DataField="foodName" HeaderText="Essen" />
+                <asp:BoundField DataField="preis" HeaderText="Preis" />
+            </Columns>
+        </asp:GridView>
         <asp:Button ID="btnReorder" runat="server" OnClick="btnReorder_Click" Text="Noch hungrig?" />
         <br />
         <asp:Button ID="btnLogOut" runat="server" OnClick="btnLogOut_Click" Text="Log Out" />
