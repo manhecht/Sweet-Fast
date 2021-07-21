@@ -23,6 +23,8 @@ namespace Sweet_Fast_PL
             String vorname = Sweet_Fast_BL.User.getUser((int)Session["loggedInUser"]).Vorname;
             String zuname = Sweet_Fast_BL.User.getUser((int)Session["loggedInUser"]).Zuname;
 
+           
+
             int orderFromID = (int)Session["selectedBusiness"];
             String orderFrom = Konditorei.getKonditorei(orderFromID).KondName;
             Bestellung best = (Bestellung)Session["Bestellung"];

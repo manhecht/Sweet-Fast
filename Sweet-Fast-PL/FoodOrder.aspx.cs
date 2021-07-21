@@ -37,7 +37,7 @@ namespace Sweet_Fast_PL
                 closingHour = currentBusiness.EndH;
 
 
-                lblGesamtpreisZahlWarenkorb.Text = best.Gesamtpreis.ToString();
+                lblGesamtpreisZahlWarenkorb.Text = "Die Gesamtsumme beträgt: " + best.Gesamtpreis.ToString("#.##") + " €";
 
 
                 lblFoodOrderPlaceName.Text = currentBusiness.KondName;
@@ -75,7 +75,7 @@ namespace Sweet_Fast_PL
             GVWarenkorb.DataSource = essenImWarenkorb;
             GVWarenkorb.DataBind();
 
-            lblGesamtpreisZahlWarenkorb.Text = best.Gesamtpreis.ToString("#.##");
+            lblGesamtpreisZahlWarenkorb.Text = "Die Gesamtsumme beträgt: " + best.Gesamtpreis.ToString("#.##") + " €";
         }
 
         protected void GVWarenkorb_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,7 +90,8 @@ namespace Sweet_Fast_PL
             essenImWarenkorb = Essen.getEssenFromBestellung(best.BestellungID);
             GVWarenkorb.DataSource = essenImWarenkorb;  
             GVWarenkorb.DataBind();
-            lblGesamtpreisZahlWarenkorb.Text = best.Gesamtpreis.ToString("#.##");
+            //lblGesamtpreisZahlWarenkorb.Text = best.Gesamtpreis.ToString("#.##");
+            lblGesamtpreisZahlWarenkorb.Text = "Die Gesamtsumme beträgt: " + best.Gesamtpreis.ToString("#.##") + " €";
 
 
         }

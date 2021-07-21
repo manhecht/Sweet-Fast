@@ -37,7 +37,7 @@
         </asp:GridView>
             <br />
 
-            <asp:Label ID="lblGesamtpreisZahlWarenkorb" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="lblGesamtpreisZahlWarenkorb" runat="server"></asp:Label>
         </div>
 
         </div>
