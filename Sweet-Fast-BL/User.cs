@@ -359,8 +359,32 @@ namespace Sweet_Fast_BL
             return meinUser;
         }
 
-       
+        public static User einloggenTwo(String email, String passwort)
+        {
+            User meinUser = new User();
+            string sql = "Select userID,email,passwort from [User] where email=@email";
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = sql;
+            cmd.Connection = Main.getConnection();
+            cmd.Parameters.AddWithValue("@email", email);
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            string userid = dt.Rows[0]["email"].ToString();
+            string password = dt.Rows[0]["passwort"].ToString();
+            bool flag = VerifyHash(passwort, "SHA512", password);
+            SqlDataReader reader = cmd.ExecuteReader();
 
-       
+            if (userid == email && flag == true)
+            {
+                reader.Read();
+                meinUser = getUser(reader.GetInt32(0));
+            }
+
+            return meinUser;
+
+        }
+
+
     }
 }
