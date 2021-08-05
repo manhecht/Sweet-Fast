@@ -225,9 +225,9 @@ namespace Sweet_Fast_BL
                 cmd.Connection = Main.getConnection();
                 cmd.Parameters.AddWithValue("vorname", vorname);
                 cmd.Parameters.AddWithValue("zuname", zuname);
-                string ePass = ComputeHash(passwort, "SHA512", null);
+                string passHash = ComputeHash(passwort, "SHA512", null);
 
-                cmd.Parameters.AddWithValue("passwort", ePass);
+                cmd.Parameters.AddWithValue("passwort", passHash);
                 cmd.Parameters.AddWithValue("email", email);
                 cmd.Parameters.AddWithValue("telefonnummer", telNr);
                 cmd.Parameters.AddWithValue("strasse", strasse);
@@ -253,9 +253,9 @@ namespace Sweet_Fast_BL
                 cmd.Connection = Main.getConnection();
                 cmd.Parameters.AddWithValue("vorname", vorname);
                 cmd.Parameters.AddWithValue("zuname", zuname);
+                string passHash = ComputeHash(passwort, "SHA512", null);
 
-                string ePass = ComputeHash(passwort, "SHA512", null);
-                cmd.Parameters.AddWithValue("passwort", ePass);
+                cmd.Parameters.AddWithValue("passwort", passHash);
                 cmd.Parameters.AddWithValue("email", email);
                 cmd.Parameters.AddWithValue("telefonnummer", telNr);
                 cmd.Parameters.AddWithValue("strasse", strasse);
