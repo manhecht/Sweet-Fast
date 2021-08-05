@@ -219,7 +219,8 @@ namespace Sweet_Fast_BL
         //registriert den user in dem ein Datenbank Eintrag angelegt wird
         public static bool registrieren(String vorname, String zuname, String passwort, String strasse, int hNr, int tNr, String telNr, int plz, String ort, String email)
         {
-            
+            try
+            {
                 string SQL = "INSERT INTO [User] ([vorname],[zuname],[passwort],[email],[telefonnummer],[strasse],[hausnummer],[türnummer],[plz],[ort]) values(@vorname,@zuname,@passwort,@email,@telefonnummer,@strasse,@hausnummer,@türnummer,@plz,@ort)";
                 SqlCommand cmd = new SqlCommand(SQL);
                 cmd.Connection = Main.getConnection();
@@ -239,7 +240,11 @@ namespace Sweet_Fast_BL
 
                 cmd.Connection.Close();
                 return true;
-          
+            }
+            catch
+            {
+                return false;
+            }
 
 
         }
