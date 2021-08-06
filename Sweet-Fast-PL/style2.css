@@ -32,7 +32,9 @@
     margin-left: 25%;
 }
 
-
+a {
+    color: #FF0066;
+}
 
 .buttonClick {
     background-color: lavenderblush;

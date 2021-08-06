@@ -220,32 +220,33 @@ namespace Sweet_Fast_BL
         public static bool registrieren(String vorname, String zuname, String passwort, String strasse, int hNr, int tNr, String telNr, int plz, String ort, String email)
         {
             try
-            {
+            { 
+
                 string SQL = "INSERT INTO [User] ([vorname],[zuname],[passwort],[email],[telefonnummer],[strasse],[hausnummer],[türnummer],[plz],[ort]) values(@vorname,@zuname,@passwort,@email,@telefonnummer,@strasse,@hausnummer,@türnummer,@plz,@ort)";
-                SqlCommand cmd = new SqlCommand(SQL);
-                cmd.Connection = Main.getConnection();
-                cmd.Parameters.AddWithValue("vorname", vorname);
-                cmd.Parameters.AddWithValue("zuname", zuname);
-                string passHash = ComputeHash(passwort, "SHA512", null);
+            SqlCommand cmd = new SqlCommand(SQL);
+            cmd.Connection = Main.getConnection();
+            cmd.Parameters.AddWithValue("vorname", vorname);
+            cmd.Parameters.AddWithValue("zuname", zuname);
+            string passHash = ComputeHash(passwort, "SHA512", null);
 
-                cmd.Parameters.AddWithValue("passwort", passHash);
-                cmd.Parameters.AddWithValue("email", email);
-                cmd.Parameters.AddWithValue("telefonnummer", telNr);
-                cmd.Parameters.AddWithValue("strasse", strasse);
-                cmd.Parameters.AddWithValue("hausnummer", hNr);
-                cmd.Parameters.AddWithValue("türnummer", tNr);
-                cmd.Parameters.AddWithValue("plz", plz);
-                cmd.Parameters.AddWithValue("ort", ort);
-                cmd.ExecuteNonQuery();
+            cmd.Parameters.AddWithValue("passwort", passHash);
+            cmd.Parameters.AddWithValue("email", email);
+            cmd.Parameters.AddWithValue("telefonnummer", telNr);
+            cmd.Parameters.AddWithValue("strasse", strasse);
+            cmd.Parameters.AddWithValue("hausnummer", hNr);
+            cmd.Parameters.AddWithValue("türnummer", tNr);
+            cmd.Parameters.AddWithValue("plz", plz);
+            cmd.Parameters.AddWithValue("ort", ort);
+            cmd.ExecuteNonQuery();
 
-                cmd.Connection.Close();
-                return true;
+            cmd.Connection.Close();
+            return true;
             }
             catch
             {
                 return false;
             }
-
+           
 
         }
 

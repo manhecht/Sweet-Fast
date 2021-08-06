@@ -9,14 +9,23 @@
     <link href="style2.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
+
+        <div class="content">
+               <form id="form1" runat="server"> 
+            <div class="header">
+            <asp:Label ID="lblHalloUser" runat="server" CssClass="bestellungUeberschrift"> </asp:Label>
+            </div>
             
-            <asp:Label ID="lblHalloUser" runat="server"></asp:Label>
+          
             
-            <asp:GridView ID="GVKonditorei" runat="server" AutoGenerateColumns="False"  EmptyDataText="Keine Lokale in der Datenbank" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GVKonditorei_SelectedIndexChanged" >
+         
+            <div class="order">
+            
+            <asp:GridView ID="GVKonditorei" runat="server" AutoGenerateColumns="False"  EmptyDataText="Keine Lokale in der Datenbank" AutoGenerateSelectButton="True" OnSelectedIndexChanged="GVKonditorei_SelectedIndexChanged" BackColor="White" >
                 <Columns>
-                    <asp:BoundField DataField="kondID" Visible="False" />
+                    <asp:BoundField DataField="kondID" Visible="False" HeaderText="Pick Me!" >
+                    <ItemStyle ForeColor="#FF0066" />
+                    </asp:BoundField>
                     <asp:BoundField DataField="kondName" HeaderText="Name" />
                     <asp:BoundField DataField="businessType" HeaderText="Typ" />
                     <asp:TemplateField HeaderText="derzeit geöffnet?">
@@ -29,8 +38,13 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+            </div>
+                       </form>
+            </div>
+            
+
             <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
-        </div>
-    </form>
+
+
 </body>
 </html>
