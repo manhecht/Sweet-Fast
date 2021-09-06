@@ -25,7 +25,7 @@ namespace Sweet_Fast_PL
             User angemeldeterUser=Sweet_Fast_BL.User.einloggenTwo(inputEmail, inputPasswort);
 
             
-            if(angemeldeterUser.Vorname !=null)
+            if(angemeldeterUser !=null)
             {
                 Session["loggedInUser"] = angemeldeterUser.UserId;
                 Response.Redirect("KonditoreiUebersicht.aspx");

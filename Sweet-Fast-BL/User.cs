@@ -82,7 +82,7 @@ namespace Sweet_Fast_BL
             internal set { ort = value; }
         }
 
-        public static string ComputeHash(string plainText, string hashAlgorithm, byte[] saltBytes)
+        internal static string ComputeHash(string plainText, string hashAlgorithm, byte[] saltBytes)
         {
             // If salt is not specified, generate it.
             if (saltBytes == null)
@@ -165,7 +165,7 @@ namespace Sweet_Fast_BL
             return hashValue;
         }
 
-        public static bool VerifyHash(string plainText, string hashAlgorithm, string hashValue)
+        internal static bool VerifyHash(string plainText, string hashAlgorithm, string hashValue)
         {
 
             // Convert base64-encoded hash value into a byte array.
