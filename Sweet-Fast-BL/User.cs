@@ -362,7 +362,13 @@ namespace Sweet_Fast_BL
 
         public static User einloggenTwo(String email, String passwort)
         {
+            
             User meinUser = new User();
+            try
+            {
+
+            
+            
             string sql = "Select userID,email,passwort from [User] where email=@email";
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = sql;
@@ -375,13 +381,19 @@ namespace Sweet_Fast_BL
             string password = dt.Rows[0]["passwort"].ToString();
             bool flag = VerifyHash(passwort, "SHA512", password);
             SqlDataReader reader = cmd.ExecuteReader();
-
+            
             if (userid == email && flag == true)
             {
                 reader.Read();
                 meinUser = getUser(reader.GetInt32(0));
+                    return meinUser;
             }
-
+            }
+            catch
+            {
+               
+            }
+             meinUser = null;
             return meinUser;
 
         }
