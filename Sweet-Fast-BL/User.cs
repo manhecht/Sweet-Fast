@@ -250,38 +250,6 @@ namespace Sweet_Fast_BL
 
         }
 
-        public static bool registrierenTwo(String vorname, String zuname, String passwort, String strasse, int hNr, String telNr, int plz, String ort, String email)
-        {
-            try
-            {
-                string SQL = "INSERT INTO [User] ([vorname],[zuname],[passwort],[email],[telefonnummer],[strasse],[hausnummer],[plz],[ort]) values(@vorname,@zuname,@passwort,@email,@telefonnummer,@strasse,@hausnummer,@plz,@ort)";
-                SqlCommand cmd = new SqlCommand(SQL);
-                cmd.Connection = Main.getConnection();
-                cmd.Parameters.AddWithValue("vorname", vorname);
-                cmd.Parameters.AddWithValue("zuname", zuname);
-                string passHash = ComputeHash(passwort, "SHA512", null);
-
-                cmd.Parameters.AddWithValue("passwort", passHash);
-                cmd.Parameters.AddWithValue("email", email);
-                cmd.Parameters.AddWithValue("telefonnummer", telNr);
-                cmd.Parameters.AddWithValue("strasse", strasse);
-                cmd.Parameters.AddWithValue("hausnummer", hNr);
-
-                cmd.Parameters.AddWithValue("plz", plz);
-                cmd.Parameters.AddWithValue("ort", ort);
-                
-                cmd.ExecuteNonQuery();
-
-                cmd.Connection.Close();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-
         public static bool checkDuplicate(String email)
             {
             string SQL = "Select * from [User] where email=@email";
@@ -341,24 +309,7 @@ namespace Sweet_Fast_BL
                 return null;
         }
         //vergleicht email + passwort 
-        public static User einloggen(String email, String passwort)
-        {
-            User meinUser = new User();
-            string sql = "Select userID from [User] where email=@email AND passwort=@passwort";
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = sql;
-            cmd.Connection = Main.getConnection();
-            cmd.Parameters.Add(new SqlParameter("email", email));
-            cmd.Parameters.Add(new SqlParameter("passwort", passwort));
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.HasRows)
-            {
-                reader.Read(); //setzt den Reader auf den ersten / nächsten DS
-                meinUser = getUser(reader.GetInt32(0));
-            }
 
-            return meinUser;
-        }
 
         public static User einloggenTwo(String email, String passwort)
         {
