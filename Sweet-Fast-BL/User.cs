@@ -82,7 +82,7 @@ namespace Sweet_Fast_BL
             internal set { ort = value; }
         }
 
-        internal static string ComputeHash(string plainText, string hashAlgorithm, byte[] saltBytes)
+        internal static string computeHash(string plainText, string hashAlgorithm, byte[] saltBytes)
         {
             // If salt is not specified, generate it.
             if (saltBytes == null)
@@ -165,7 +165,7 @@ namespace Sweet_Fast_BL
             return hashValue;
         }
 
-        internal static bool VerifyHash(string plainText, string hashAlgorithm, string hashValue)
+        internal static bool verifyHash(string plainText, string hashAlgorithm, string hashValue)
         {
 
             // Convert base64-encoded hash value into a byte array.
@@ -210,7 +210,7 @@ namespace Sweet_Fast_BL
                 saltBytes[i] = hashWithSaltBytes[hashSizeInBytes + i];
 
             // Compute a new hash string.
-            string expectedHashString = ComputeHash(plainText, hashAlgorithm, saltBytes);
+            string expectedHashString = computeHash(plainText, hashAlgorithm, saltBytes);
 
             // If the computed hash matches the specified hash,
             // the plain text value must be correct.
@@ -227,7 +227,7 @@ namespace Sweet_Fast_BL
             cmd.Connection = Main.getConnection();
             cmd.Parameters.AddWithValue("vorname", vorname);
             cmd.Parameters.AddWithValue("zuname", zuname);
-            string passHash = ComputeHash(passwort, "SHA512", null);
+            string passHash = computeHash(passwort, "SHA512", null);
 
             cmd.Parameters.AddWithValue("passwort", passHash);
             cmd.Parameters.AddWithValue("email", email);
@@ -311,7 +311,7 @@ namespace Sweet_Fast_BL
         //vergleicht email + passwort 
 
 
-        public static User einloggenTwo(String email, String passwort)
+        public static User einloggen(String email, String passwort)
         {
             
             User meinUser = new User();
@@ -330,7 +330,7 @@ namespace Sweet_Fast_BL
             da.Fill(dt);
             string userid = dt.Rows[0]["email"].ToString();
             string password = dt.Rows[0]["passwort"].ToString();
-            bool flag = VerifyHash(passwort, "SHA512", password);
+            bool flag = verifyHash(passwort, "SHA512", password);
             SqlDataReader reader = cmd.ExecuteReader();
             
             if (userid == email && flag == true)

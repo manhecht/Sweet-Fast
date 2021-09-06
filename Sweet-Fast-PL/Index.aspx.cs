@@ -22,7 +22,7 @@ namespace Sweet_Fast_PL
             String inputEmail = txtEmailLogin.Text;
             String inputPasswort = txtPasswortLogin.Text;
 
-            User angemeldeterUser=Sweet_Fast_BL.User.einloggenTwo(inputEmail, inputPasswort);
+            User angemeldeterUser=Sweet_Fast_BL.User.einloggen(inputEmail, inputPasswort);
 
             
             if(angemeldeterUser !=null)
