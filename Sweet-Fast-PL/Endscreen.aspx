@@ -26,7 +26,7 @@
 
         <div class="order">
 
-            <asp:Label ID="lblBestellung" runat="server" Text="Deine Bestellung" CssClass="bestellungUeberschrift"></asp:Label>
+            <asp:Label ID="lblBestellung" runat="server" Text="Ihre Bestellung" CssClass="bestellungUeberschrift"></asp:Label>
             <br />
         <div class ="orderStuff">
         <asp:GridView ID="GVEndscreen" runat="server" AutoGenerateColumns="False" HorizontalAlign="Center" CellPadding="6" CellSpacing="2" GridLines="Horizontal" BackColor="White">
